@@ -39,7 +39,7 @@ public class IdeoneTest {
         if (result == 15) {
             System.out.println("memory=" + memory + " time=" + time + " output=" + output);
         } else {
-            System.out.println(cmpinfo + "\nerror:" + stderr);
+            System.out.println(cmpinfo + "\n error:" + stderr);
         }
     }
 
