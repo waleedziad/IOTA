@@ -55,7 +55,7 @@ public class UserDaoTest {
         user.setRegistrationDate("2015-6-7");
         user.setPassword("12345");
         
-        userDao.insertUser(user);
+//        userDao.insertUser(user);
         List<User> users = userDao.getAllUsers() ;
         for(int i=0;i<users.size();i++)
             if(users.get(i).getFirstName().equalsIgnoreCase("Eslam")){
