@@ -37,7 +37,8 @@ public class DeviceDaoTest {
     {
         List<Device> devices = deviceDao.getAll() ;
         System.out.println(devices.toString());
-        
+        System.out.println("____________________________________________");
+        System.out.println(devices.get(0).getUser().toString());
         assert(true) : devices.toString();
     }
     

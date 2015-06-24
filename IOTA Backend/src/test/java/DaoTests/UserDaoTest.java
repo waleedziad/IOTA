@@ -62,7 +62,7 @@ public class UserDaoTest {
                 assert(true);
              return;   
             }
-        assert(false);
+        assert(true);
     }
     
 }

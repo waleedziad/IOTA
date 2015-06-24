@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<script type="text/javascript">
+
+  function checkForm(form)
+  {
+    if(form.firstname.value == "") {
+      alert("Error: First name cannot be blank!");
+      form.firstname.focus();
+      return false;
+    }
+    
+	if(form.lastname.value == "") {
+      alert("Error: Last name cannot be blank!");
+      form.lastname.focus();
+      return false;
+    }
+    
+	if(form.username.value == "") {
+      alert("Error: Email cannot be blank!");
+      form.username.focus();
+      return false;
+    }
+    re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    if(!re.test(form.username.value)) {
+        alert("Error: Email isn't correct!");
+        form.username.focus();
+        return false;
+      }
+      
+    if(form.password.value != "" && form.password.value == form.password2.value) {
+      if(form.password.value.length < 6) {
+        alert("Error: Password must contain at least six characters!");
+        form.password.focus();
+        return false;
+      }
+      
+	  re = /[0-9]/;
+      if(!re.test(form.password.value)) {
+        alert("Error: Password must contain at least one number (0-9)!");
+        form.password.focus();
+        return false;
+      }
+      re = /[a-z]/;
+      if(!re.test(form.password.value)) {
+        alert("Error: Password must contain at least one lowercase letter (a-z)!");
+        form.password.focus();
+        return false;
+      }
+      re = /[A-Z]/;
+      if(!re.test(form.password.value)) {
+        alert("Error: Password must contain at least one uppercase letter (A-Z)!");
+        form.password.focus();
+        return false;
+      }
+    } else {
+      alert("Error: Please check that you've entered and confirmed your password!");
+      form.password.focus();
+      return false;
+    }
+    return true;
+  }
+
+</script>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+  <meta charset="utf-8" />
+  <title>IOTA Sign Up</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="" name="description" />
+  <meta content="" name="author" />
+  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link href="assets/css/style.css" rel="stylesheet" />
+  <link href="assets/css/style_responsive.css" rel="stylesheet" />
+  <link href="assets/css/style_default.css" rel="stylesheet" id="style_color" />
+  <link rel="stylesheet" type="text/css" href="assets/uniform/css/uniform.default.css" />
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body>
+  <!-- BEGIN LOGO -->
+  <div id="logo" class="center">
+    <img src="assets/img/logo.png" alt="logo" class="center" /> 
+  </div>
+  <!-- END LOGO -->
+  <!-- BEGIN LOGIN -->
+  <div id="login">
+    <!-- BEGIN LOGIN FORM -->
+    <form id="loginform" class="form-vertical no-padding no-margin" method="POST" action="signup.htm" onsubmit="return checkForm(this);">
+      <p class="center">Registration Form</p>
+      <div class="control-group">
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-user"></i></span><input id="input-firstname" name="firstname" type="text" placeholder="First Name" />
+          </div>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-user"></i></span><input id="input-lastname" name="lastname" type="text" placeholder="Last Name" />
+          </div>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-user"></i></span><input id="input-username" name="username" type="text" placeholder="Email" />
+          </div>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-lock"></i></span><input id="input-password" name="password" type="password" placeholder="Password" />             
+          </div>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-lock"></i></span><input id="input-password2" name="password2" type="password" placeholder="Confirm Password" />             
+          </div>
+          <div class="clearfix space5"></div>
+        </div>
+      </div>
+      <input type="submit" id="login-btn" class="btn btn-block btn-inverse" value="Sign Up" />
+    </form>
+    <!-- END LOGIN FORM --> 
+  </div>
+  <!-- END LOGIN -->
+  <!-- BEGIN COPYRIGHT -->
+  <div id="login-copyright">
+    2015 &copy; IOTA.
+  </div>
+  <!-- END COPYRIGHT -->
+  <!-- BEGIN JAVASCRIPTS -->
+  <script src="assets/js/jquery-1.8.2.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/jquery.blockui.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    jQuery(document).ready(function() {     
+      App.initLogin();
+    });
+  </script>
+  <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

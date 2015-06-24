@@ -38,7 +38,7 @@ public class Feed implements Serializable {
     /**
      * @param feedId the feed id to set
      */
-    public void setFeedName(int feedId) {
+    public void setFeedId(int feedId) {
         this.feedId = feedId;
     }
 

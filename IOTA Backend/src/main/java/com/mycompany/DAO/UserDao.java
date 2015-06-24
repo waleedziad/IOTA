@@ -16,9 +16,16 @@ public class UserDao {
     
     
     
-    public User insertUser(User user){
+    public Boolean insertUser(User user){
+        List<User> users=getAllUsers();
+        for(int i=0;i<users.size();i++){
+            if(users.get(i).getEmail().equalsIgnoreCase(user.getEmail())){
+                return false;
+            }
+        }
+        
         entityManager.persist(user);
-        return user;
+        return true;
     }
     
     public List<User> getAllUsers()

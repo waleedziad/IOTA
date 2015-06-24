@@ -27,4 +27,10 @@ public class DeviceDao {
         return devices ;
     }
     
+    public List<Device> getAllUserDevices(Long id)
+    {
+        List<Device> devices = entityManager.createQuery("from Device where userId = :code ").setParameter("code", id).getResultList();
+        return devices ;
+    }
+    
 }

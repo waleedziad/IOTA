@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if IE 10]> <html lang="en" class="ie10"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+   <meta charset="utf-8" />
+   <title>Conquer | Form Stuff</title>
+   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+   <meta content="" name="description" />
+   <meta content="" name="author" />
+   <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+   <link href="assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
+   <link href="assets/bootstrap/css/bootstrap-fileupload.css" rel="stylesheet" />
+   <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+   <link href="assets/css/style.css" rel="stylesheet" />
+   <link href="assets/css/style_responsive.css" rel="stylesheet" />
+   <link href="assets/css/style_default.css" rel="stylesheet" id="style_color" />
+   <link href="#" rel="stylesheet" id="style_metro" />
+   <link href="assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+   <link rel="stylesheet" type="text/css" href="assets/gritter/css/jquery.gritter.css" />
+   <link rel="stylesheet" type="text/css" href="assets/uniform/css/uniform.default.css" />
+   <link rel="stylesheet" type="text/css" href="assets/chosen-bootstrap/chosen/chosen.css" />
+   <link rel="stylesheet" type="text/css" href="assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />
+   <link rel="stylesheet" type="text/css" href="assets/bootstrap-datepicker/css/datepicker.css" />
+   <link rel="stylesheet" type="text/css" href="assets/bootstrap-timepicker/compiled/timepicker.css" />
+   <link rel="stylesheet" type="text/css" href="assets/bootstrap-colorpicker/css/colorpicker.css" />
+   <link rel="stylesheet" href="assets/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css" />
+   <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
+   <link rel="stylesheet" type="text/css" href="assets/bootstrap-daterangepicker/daterangepicker.css" />
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="fixed-top">
+   <!-- BEGIN HEADER -->
+   <div id="header" class="navbar navbar-inverse navbar-fixed-top">
+      <!-- BEGIN TOP NAVIGATION BAR -->
+      <div class="navbar-inner">
+         <div class="container-fluid">
+            <!-- BEGIN LOGO -->
+            <a class="brand" href="index.html">
+            <img src="assets/img/logo.png" alt="Conquer"/>
+            </a>
+            <!-- END LOGO -->
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="arrow"></span>
+            </a>          
+            <!-- END RESPONSIVE MENU TOGGLER -->            
+            <div class="top-nav">
+               <!-- BEGIN QUICK SEARCH FORM -->
+               <form class="navbar-search hidden-phone">
+                  <div class="search-input-icon">
+                     <input type="text" class="search-query dropdown-toggle" id="quick_search" placeholder="Search" data-toggle="dropdown" />
+                     <i class="icon-search"></i>
+                     <!-- BEGIN QUICK SEARCH RESULT PREVIEW -->
+                     <ul class="dropdown-menu extended">                      
+                        <li>
+                           <span class="arrow"></span>
+                           <p>Found 23 results</p>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="label label-success"><i class="icon-user"></i></span>
+                           Nick Kim, Technical Mana...<i class="icon icon-arrow-right"></i>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="label label-info"><i class="icon-money"></i></span>
+                           Anual Report,Dec 20...<i class="icon icon-arrow-right"></i>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="label label-warning"><i class="icon-comment"></i></span>
+                           Re: Nick Dalton, Sep 11:...<i class="icon icon-arrow-right"></i>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="label label-important"><i class="icon-bullhorn"></i></span>
+                           Office Setup, Mar 12...<i class="icon icon-arrow-right"></i>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="label label-info"><i class="icon-envelope"></i></span>
+                           Re: Order Status, Jan 12...<i class="icon icon-arrow-right"></i>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="label label-info"><i class="icon-paper-clip"></i></span>
+                           project_2011.docx, Feb 12...<i class="icon icon-arrow-right"></i>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           See all results...
+                           </a>
+                        </li>
+                     </ul>
+                     <!-- END QUICK SEARCH RESULT PREVIEW -->
+                  </div>
+               </form>
+               <!-- END QUICK SEARCH FORM -->
+               <!-- BEGIN TOP NAVIGATION MENU -->              
+               <ul class="nav pull-right" id="top_menu">
+                  <!-- BEGIN NOTIFICATION DROPDOWN -->   
+                  <li class="dropdown" id="header_notification_bar">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                     <i class="icon-warning-sign"></i>
+                     <span class="label label-important">15</span>
+                     </a>
+                     <ul class="dropdown-menu extended notification">
+                        <li>
+                           <p>You have 14 new notifications</p>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="label label-success"><i class="icon-plus"></i></span>
+                           New user registered. 
+                           <span class="small italic">Just now</span>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="label label-important"><i class="icon-bolt"></i></span>
+                           Server #12 overloaded. 
+                           <span class="small italic">15 mins</span>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="label label-warning"><i class="icon-bell"></i></span>
+                           Server #2 not respoding.
+                           <span class="small italic">22 mins</span>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="label label-info"><i class="icon-bullhorn"></i></span>
+                           Application error.
+                           <span class="small italic">40 mins</span>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="label label-important"><i class="icon-bolt"></i></span>
+                           Database overloaded 68%. 
+                           <span class="small italic">2 hrs</span>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="label label-important"><i class="icon-bolt"></i></span>
+                           2 user IP addresses blacklisted.
+                           <span class="small italic">5 hrs</span>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">See all notifications</a>
+                        </li>
+                     </ul>
+                  </li>
+                  <!-- END NOTIFICATION DROPDOWN -->
+                  <!-- BEGIN INBOX DROPDOWN -->
+                  <li class="dropdown" id="header_inbox_bar">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                     <i class="icon-envelope-alt"></i>
+                     <span class="label label-success">5</span>
+                     </a>
+                     <ul class="dropdown-menu extended inbox">
+                        <li>
+                           <p>You have 12 new messages</p>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="photo"><img src="./assets/img/avatar-mini.png" alt="avatar"/></span>
+                           <span class="subject">
+                           <span class="from">Lisa Wong</span>
+                           <span class="time">Just Now</span>
+                           </span>
+                           <span class="message">
+                           Vivamus sed auctor nibh congue nibh.
+                           </span>  
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="photo"><img src="./assets/img/avatar-mini.png" alt="avatar"/></span>
+                           <span class="subject">
+                           <span class="from">Alina Fionovna</span>
+                           <span class="time">16 mins</span>
+                           </span>
+                           <span class="message">
+                           Vivamus sed auctor nibh congue.
+                           </span>  
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <span class="photo"><img src="./assets/img/avatar-mini.png" alt="avatar"/></span>
+                           <span class="subject">
+                           <span class="from">Mila Rock</span>
+                           <span class="time">2 hrs</span>
+                           </span>
+                           <span class="message">
+                           Vivamus sed auctor nibh congue.
+                           </span>  
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">See all messages</a>
+                        </li>
+                     </ul>
+                  </li>
+                  <!-- END INBOX DROPDOWN -->
+                  <li class="divider-vertical hidden-phone hidden-tablet"></li>
+                  <!-- BEGIN USER LOGIN DROPDOWN -->
+                  <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                     <i class="icon-wrench"></i>
+                     <b class="caret"></b>
+                     </a>
+                     <ul class="dropdown-menu">
+                        <li><a href="#"><i class="icon-cogs"></i> System Settings</a></li>
+                        <li><a href="#"><i class="icon-pushpin"></i> Shortcuts</a></li>
+                        <li><a href="#"><i class="icon-trash"></i> Trash</a></li>                        
+                     </ul>
+                  </li>
+                  <!-- END USER LOGIN DROPDOWN -->
+                  <li class="divider-vertical hidden-phone hidden-tablet"></li>
+                  <!-- BEGIN USER LOGIN DROPDOWN -->
+                  <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                     <i class="icon-user"></i>
+                     <b class="caret"></b>
+                     </a>
+                     <ul class="dropdown-menu">
+                        <li><a href="#"><i class="icon-user"></i> Mark King</a></li>
+                        <li><a href="#"><i class="icon-envelope-alt"></i> Inbox</a></li>
+                        <li><a href="#"><i class="icon-tasks"></i> Tasks</a></li>
+                        <li><a href="#"><i class="icon-ok"></i> Calendar</a></li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                     </ul>
+                  </li>
+                  <!-- END USER LOGIN DROPDOWN -->
+               </ul>
+               <!-- END TOP NAVIGATION MENU --> 
+            </div>
+         </div>
+      </div>
+      <!-- END TOP NAVIGATION BAR -->
+   </div>
+   <!-- END HEADER -->
+   <!-- BEGIN CONTAINER -->
+   <div id="container" class="row-fluid">
+      <!-- BEGIN SIDEBAR -->
+      <div id="sidebar" class="nav-collapse collapse">
+         <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+         <div class="navbar-inverse">
+            <form class="navbar-search visible-phone">
+               <input type="text" class="search-query" placeholder="Search" />
+            </form>
+         </div>
+         <!-- END RESPONSIVE QUICK SEARCH FORM -->
+         <!-- BEGIN SIDEBAR MENU -->
+         <ul>
+            <li>
+               <a href="index.html">
+               <i class="icon-home"></i> Dashboard
+               </a>					
+            </li>
+            <li class="has-sub">
+               <a href="javascript:;" class="">
+               <i class="icon-bookmark-empty"></i> UI Elements
+               <span class="arrow"></span>
+               </a>
+               <ul class="sub">
+                  <li><a class="" href="ui_elements_general.html">General</a></li>
+                  <li><a class="" href="ui_elements_buttons.html">Buttons</a></li>
+                  <li><a class="" href="ui_elements_tabs_accordions.html">Tabs & Accordions</a></li>
+                  <li><a class="" href="ui_elements_typography.html">Typography</a></li>
+               </ul>
+            </li>
+            <li class="active"><a class="" href="forms.html"><i class="icon-table"></i> Form Stuff</a></li>
+            <li><a class="" href="tables.html"><i class="icon-table"></i> Data Tables</a></li>
+            <li><a class="" href="grids.html"><i class="icon-th"></i> Grids & Portlets</a></li>
+            <li><a class="" href="charts.html"><i class="icon-bar-chart"></i> Visual Charts</a></li>
+            <li class="has-sub">
+               <a href="javascript:;" class="">
+               <i class="icon-map-marker"></i> Maps
+               <span class="arrow"></span>
+               </a>
+               <ul class="sub">
+                  <li><a class="" href="maps_google.html"> Google Maps</a></li>
+                  <li><a class="" href="maps_vector.html"> Vector Maps</a></li>
+               </ul>
+            </li>
+            <li><a class="" href="calendar.html"><i class="icon-ok"></i> Calendar</a></li>
+            <li><a class="" href="gallery.html"><i class="icon-camera"></i> Gallery</a></li>
+            <li><a class="" href="login.html"><i class="icon-user"></i> Login Page</a></li>
+         </ul>
+         <!-- END SIDEBAR MENU -->
+      </div>
+      <!-- END SIDEBAR -->
+      <!-- BEGIN PAGE -->  
+      <div id="body">
+         <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+         <div id="widget-config" class="modal hide">
+            <div class="modal-header">
+               <button data-dismiss="modal" class="close" type="button">×</button>
+               <h3>Widget Settings</h3>
+            </div>
+            <div class="modal-body">
+               <p>Here will be a configuration form</p>
+            </div>
+         </div>
+         <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+         <!-- BEGIN PAGE CONTAINER-->
+         <div class="container-fluid">
+            <!-- BEGIN PAGE HEADER-->   
+            <div class="row-fluid">
+               <div class="span12">
+                  <!-- BEGIN STYLE CUSTOMIZER-->
+                  <div id="styler" class="hidden-phone">
+                     <i class="icon-cog"></i>
+                     <span class="settings">
+                        <span class="text">Style:</span>
+                        <span class="colors">
+                           <span class="color-default" data-style="default">
+                           </span>
+                           <span class="color-grey" data-style="grey">
+                           </span>
+                           <span class="color-navygrey" data-style="navygrey">
+                           </span>                                
+                           <span class="color-red" data-style="red">
+                           </span>  
+                        </span>
+                        <span class="layout">
+                           <label class="hidden-phone">
+                           <input type="checkbox" class="header" checked value="" />Sticky Header
+                           </label><br />
+                           <label><input type="checkbox" class="metro" value="" />Metro Style</label>
+                           <span class="space5"></span>
+                           <a class="btn fancybox-button" data-rel="fancybox-button" title="Conquer Large Desktop Preview"  href="assets/img/demo/desktop.png"><i class="icon-eye-open"></i> Screenshots</a>
+                           <a class="fancybox-button" data-rel="fancybox-button" title="Conquer Notebook Preview" href="assets/img/demo/notebook.png"></a>
+                           <a class="fancybox-button" data-rel="fancybox-button" title="Conquer Tablet Preview"  href="assets/img/demo/tablet.png"></a>
+                           <a class="fancybox-button" data-rel="fancybox-button" title="Conquer Phone Preview"  href="assets/img/demo/phone.png"></a>
+                        </span>
+                     </span>
+                  </div>
+                  <!-- END STYLE CUSTOMIZER-->        
+                  <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                  <h3 class="page-title">
+                     Form Stuff
+                     <small>form controls, components, pickers and more</small>
+                  </h3>
+                  <ul class="breadcrumb">
+                     <li>
+                        <i class="icon-home"></i>
+                        <a href="index.html">Home</a> <span class="divider">/</span>
+                     </li>
+                     <li><a href="#">Form Stuff</a></li>
+                  </ul>
+                  <!-- END PAGE TITLE & BREADCRUMB-->
+               </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <!-- BEGIN PAGE CONTENT-->
+            <div id="page">
+               <div class="row-fluid">
+                  <div class="span12">
+                     <!-- BEGIN SAMPLE FORM PORTLET-->	
+                     <div class="widget">
+                        <div class="widget-title">
+                           <h4><i class="icon-reorder"></i>Sample Form</h4>
+                           <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
+                           <a href="javascript:;" class="icon-refresh"></a>		
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>							
+                        </div>
+                        <div class="widget-body form">
+                           <!-- BEGIN FORM-->
+                           <form action="#" class="form-horizontal">
+                              <div class="control-group">
+                                 <label class="control-label" for="input1">Input</label>
+                                 <div class="controls">
+                                    <input type="text" class="span6" id="input1" />
+                                    <span class="help-inline">Some hint here</span>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" for="input2">Disabled Input</label>
+                                 <div class="controls">
+                                    <input class="span6" id="input2" type="text" placeholder="Disabled input here..." disabled />
+                                    <span class="help-inline">Some hint here</span>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" for="input3">Input with Popover</label>
+                                 <div class="controls">
+                                    <input type="text" class="span6 popovers" id="input3" data-trigger="hover" data-content="Popover body goes here. Popover body goes here." data-original-title="Popover header" />
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" for="input4">Input with Tooltip</label>
+                                 <div class="controls">
+                                    <input type="text" class="span6 tooltips" id="input4"  data-trigger="hover" data-original-title="Tooltip text goes here. Tooltip text goes here." />					 	 		
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" for="input5">Auto Complete</label>
+                                 <div class="controls">
+                                    <input type="text" id="input5" class="span6" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Alabama&quot;,&quot;Alaska&quot;,&quot;Arizona&quot;,&quot;Arkansas&quot;,&quot;California&quot;,&quot;Colorado&quot;,&quot;Connecticut&quot;,&quot;Delaware&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;,&quot;Iowa&quot;,&quot;Kansas&quot;,&quot;Kentucky&quot;,&quot;Louisiana&quot;,&quot;Maine&quot;,&quot;Maryland&quot;,&quot;Massachusetts&quot;,&quot;Michigan&quot;,&quot;Minnesota&quot;,&quot;Mississippi&quot;,&quot;Missouri&quot;,&quot;Montana&quot;,&quot;Nebraska&quot;,&quot;Nevada&quot;,&quot;New Hampshire&quot;,&quot;New Jersey&quot;,&quot;New Mexico&quot;,&quot;New York&quot;,&quot;North Dakota&quot;,&quot;North Carolina&quot;,&quot;Ohio&quot;,&quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&quot;Wisconsin&quot;,&quot;Wyoming&quot;]" />
+                                    <p class="help-block">Start typing to auto complete!. E.g: California</p>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" for="input6">Phone Number Input</label>
+                                 <div class="controls">
+                                    <input type="text" class="span6" id="input6" />
+                                    <span class="help-block">Some hint here</span>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" for="input7">Email Address Input</label>
+                                 <div class="controls">
+                                    <div class="input-prepend">
+                                       <span class="add-on">@</span><input class="input-medium" id="input7" type="text" placeholder="Email Address" />			 
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" for="input8">Currency Input</label>
+                                 <div class="controls">
+                                    <div class="input-prepend input-append">
+                                       <span class="add-on">$</span><input class="input-small" id="input8" type="text" /><span class="add-on">.00</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" >Default Dropdown</label>
+                                 <div class="controls">
+                                    <select class="span6" data-placeholder="Choose a Category" tabindex="1">
+                                       <option value=""></option>
+                                       <option value="Category 1">Category 1</option>
+                                       <option value="Category 2">Category 2</option>
+                                       <option value="Category 3">Category 5</option>
+                                       <option value="Category 4">Category 4</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" >Custom Dropdown</label>
+                                 <div class="controls">
+                                    <select class="span6 chosen" data-placeholder="Choose a Category" tabindex="1">
+                                       <option value=""></option>
+                                       <option value="Category 1">Category 1</option>
+                                       <option value="Category 2">Category 2</option>
+                                       <option value="Category 3">Category 5</option>
+                                       <option value="Category 4">Category 4</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label">Grouped Custom Dropdown</label>
+                                 <div class="controls">
+                                    <select data-placeholder="Your Favorite Football Team" class="chosen span6" tabindex="-1" id="selS0V">
+                                       <option value=""></option>
+                                       <optgroup label="NFC EAST">
+                                          <option>Dallas Cowboys</option>
+                                          <option>New York Giants</option>
+                                          <option>Philadelphia Eagles</option>
+                                          <option>Washington Redskins</option>
+                                       </optgroup>
+                                       <optgroup label="NFC NORTH">
+                                          <option>Chicago Bears</option>
+                                          <option>Detroit Lions</option>
+                                          <option>Green Bay Packers</option>
+                                          <option>Minnesota Vikings</option>
+                                       </optgroup>
+                                       <optgroup label="NFC SOUTH">
+                                          <option>Atlanta Falcons</option>
+                                          <option>Carolina Panthers</option>
+                                          <option>New Orleans Saints</option>
+                                          <option>Tampa Bay Buccaneers</option>
+                                       </optgroup>
+                                       <optgroup label="NFC WEST">
+                                          <option>Arizona Cardinals</option>
+                                          <option>St. Louis Rams</option>
+                                          <option>San Francisco 49ers</option>
+                                          <option>Seattle Seahawks</option>
+                                       </optgroup>
+                                       <optgroup label="AFC EAST">
+                                          <option>Buffalo Bills</option>
+                                          <option>Miami Dolphins</option>
+                                          <option>New England Patriots</option>
+                                          <option>New York Jets</option>
+                                       </optgroup>
+                                       <optgroup label="AFC NORTH">
+                                          <option>Baltimore Ravens</option>
+                                          <option>Cincinnati Bengals</option>
+                                          <option>Cleveland Browns</option>
+                                          <option>Pittsburgh Steelers</option>
+                                       </optgroup>
+                                       <optgroup label="AFC SOUTH">
+                                          <option>Houston Texans</option>
+                                          <option>Indianapolis Colts</option>
+                                          <option>Jacksonville Jaguars</option>
+                                          <option>Tennessee Titans</option>
+                                       </optgroup>
+                                       <optgroup label="AFC WEST">
+                                          <option>Denver Broncos</option>
+                                          <option>Kansas City Chiefs</option>
+                                          <option>Oakland Raiders</option>
+                                          <option>San Diego Chargers</option>
+                                       </optgroup>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label">Custom Dropdown Multiple Select</label>
+                                 <div class="controls">
+                                    <select data-placeholder="Your Favorite Football Teams" class="chosen span6" multiple tabindex="6">
+                                       <option value=""></option>
+                                       <optgroup label="NFC EAST">
+                                          <option>Dallas Cowboys</option>
+                                          <option>New York Giants</option>
+                                          <option>Philadelphia Eagles</option>
+                                          <option>Washington Redskins</option>
+                                       </optgroup>
+                                       <optgroup label="NFC NORTH">
+                                          <option selected>Chicago Bears</option>
+                                          <option>Detroit Lions</option>
+                                          <option>Green Bay Packers</option>
+                                          <option>Minnesota Vikings</option>
+                                       </optgroup>
+                                       <optgroup label="NFC SOUTH">
+                                          <option>Atlanta Falcons</option>
+                                          <option selected>Carolina Panthers</option>
+                                          <option>New Orleans Saints</option>
+                                          <option>Tampa Bay Buccaneers</option>
+                                       </optgroup>
+                                       <optgroup label="NFC WEST">
+                                          <option>Arizona Cardinals</option>
+                                          <option>St. Louis Rams</option>
+                                          <option>San Francisco 49ers</option>
+                                          <option>Seattle Seahawks</option>
+                                       </optgroup>
+                                       <optgroup label="AFC EAST">
+                                          <option>Buffalo Bills</option>
+                                          <option>Miami Dolphins</option>
+                                          <option>New England Patriots</option>
+                                          <option>New York Jets</option>
+                                       </optgroup>
+                                       <optgroup label="AFC NORTH">
+                                          <option>Baltimore Ravens</option>
+                                          <option>Cincinnati Bengals</option>
+                                          <option>Cleveland Browns</option>
+                                          <option>Pittsburgh Steelers</option>
+                                       </optgroup>
+                                       <optgroup label="AFC SOUTH">
+                                          <option>Houston Texans</option>
+                                          <option>Indianapolis Colts</option>
+                                          <option>Jacksonville Jaguars</option>
+                                          <option>Tennessee Titans</option>
+                                       </optgroup>
+                                       <optgroup label="AFC WEST">
+                                          <option>Denver Broncos</option>
+                                          <option>Kansas City Chiefs</option>
+                                          <option>Oakland Raiders</option>
+                                          <option>San Diego Chargers</option>
+                                       </optgroup>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" >Custom Dropdown Diselect</label>
+                                 <div class="controls">
+                                    <select data-placeholder="Your Favorite Type of Bear" class="chosen-with-diselect span6" tabindex="-1" id="selCSI">
+                                       <option value=""></option>
+                                       <option>American Black Bear</option>
+                                       <option>Asiatic Black Bear</option>
+                                       <option>Brown Bear</option>
+                                       <option>Giant Panda</option>
+                                       <option selected="">Sloth Bear</option>
+                                       <option>Sun Bear</option>
+                                       <option>Polar Bear</option>
+                                       <option>Spectacled Bear</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" >Radio Buttons</label>
+                                 <div class="controls">
+                                    <label class="radio">
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked />
+                                    Option 1
+                                    </label>
+                                    <div class="clearfix"></div>
+                                    <label class="radio">
+                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
+                                    Option 2
+                                    </label>  
+                                    <div class="clearfix"></div>
+                                    <label class="radio">
+                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option2" />
+                                    Option 3
+                                    </label>  
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" >Checkbox</label>
+                                 <div class="controls">
+                                    <label class="checkbox">
+                                    <input type="checkbox" value="" /> Checkbox 1
+                                    </label>
+                                    <label class="checkbox">
+                                    <input type="checkbox" value="" /> Checkbox 2
+                                    </label>
+                                 </div>
+                              </div>                             
+                              <div class="control-group">
+                                 <label class="control-label" for="inputRemarks">Textarea</label>
+                                 <div class="controls">
+                                    <textarea class="span6" rows="3" id="inputRemarks"></textarea>
+                                 </div>
+                              </div>
+                              <div class="form-actions">
+                                 <button type="submit" class="btn btn-primary">Save</button>
+                                 <button type="button" class="btn">Cancel</button>
+                              </div>
+                           </form>
+                           <!-- END FORM-->				
+                        </div>
+                     </div>
+                     <!-- END SAMPLE FORM PORTLET-->
+                  </div>
+               </div>
+                <div class="row-fluid">
+                  <div class="span12">
+                     <!-- BEGIN PORTLET-->   
+                     <div class="widget">
+                        <div class="widget-title">
+                           <h4><i class="icon-reorder"></i>File Upload</h4>
+                           <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
+                           <a href="javascript:;" class="icon-refresh"></a>      
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>                    
+                        </div>
+                        <div class="widget-body form">
+                           <!-- BEGIN FORM-->
+                           <form action="#" class="form-horizontal">
+                              <div class="control-group">
+                                 <label class="control-label">Default</label>
+                                 <div class="controls">
+                                    <input type="file" class="default"/>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label">Styled</label>
+                                 <div class="controls">
+                                    <input type="file"/>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label">Advanced</label>
+                                 <div class="controls">
+                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                      <div class="input-append">
+                                        <div class="uneditable-input span3"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span></div><span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span>
+                                        <input type="file" class="default" />
+                                          </span><a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                      </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label">Without input</label>
+                                 <div class="controls">
+                                     <div class="fileupload fileupload-new" data-provides="fileupload">
+                                      <span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file" class="default"/></span>
+                                      <span class="fileupload-preview"></span>
+                                      <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+                                    </div>
+                                 </div>
+                              </div>      
+                              <div class="control-group">
+                                 <label class="control-label">Image Upload</label>
+                                 <div class="controls">
+                                     
+                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                      <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/></div>
+                                      <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                      <div>
+                                        <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" class="default" /></span>
+                                        <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                      </div>
+                                    </div>
+
+                                    <span class="label label-important">NOTE!</span>
+                                    <span class="help-inline">Attached image thumbnail is
+                                                supported in Latest Firefox, Chrome, Opera, Safari and Internet Explorer 10 only</span>
+                                 </div>
+                              </div>      
+                           </form>
+                           <!-- END FORM-->  
+                        </div>
+                     </div>
+                     <!-- END PORTLET-->
+                  </div>
+               </div>
+               <div class="row-fluid">
+                  <div class="span12">
+                     <!-- BEGIN PORTLET-->	
+                     <div class="widget">
+                        <div class="widget-title">
+                           <h4><i class="icon-reorder"></i>Color Pickers</h4>
+                           <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
+                           <a href="javascript:;" class="icon-refresh"></a>		
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>							
+                        </div>
+                        <div class="widget-body form">
+                           <!-- BEGIN FORM-->
+                           <form action="#" class="form-horizontal">
+                              <div class="control-group">
+                                 <label class="control-label" >Default</label>
+                                 <div class="controls">
+                                    <input type="text" class="colorpicker-default" value="#8fff00" />
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" >RGBA</label>
+                                 <div class="controls">
+                                    <input type="text" class="colorpicker-rgba" value="rgb(0,194,255,0.78)" data-color-format="rgba" />
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" >As Component</label>
+                                 <div class="controls">
+                                    <div class="input-append color colorpicker-default" data-color="#3865a8" data-color-format="rgba">
+                                       <input type="text" class="input-small" value="#3865a8" readonly />
+                                       <span class="add-on"><i style="background-color: #3865a8"></i></span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </form>
+                           <!-- END FORM-->	
+                        </div>
+                     </div>
+                     <!-- END PORTLET-->
+                  </div>
+               </div>
+               <div class="row-fluid">
+                  <div class="span12">
+                     <!-- BEGIN PORTLET-->	
+                     <div class="widget">
+                        <div class="widget-title">
+                           <h4><i class="icon-reorder"></i>Time Pickers</h4>
+                           <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
+                           <a href="javascript:;" class="icon-refresh"></a>		
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>							
+                        </div>
+                        <div class="widget-body form">
+                           <!-- BEGIN FORM-->
+                           <form action="#" class="form-horizontal">
+                              <div class="control-group">
+                                 <label class="control-label" >Default Timepicker</label>
+                                 <div class="controls">
+                                    <div class="input-append bootstrap-timepicker-component">
+                                       <input class="input-small timepicker-default" type="text" /><span class="add-on"><i class="icon-time"></i></span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" >24hr Timepicker</label>
+                                 <div class="controls">
+                                    <div class="input-append bootstrap-timepicker-component">
+                                       <input class="timepicker-24 input-small" type="text" /><span class="add-on"><i class="icon-time"></i></span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </form>
+                           <!-- END FORM-->	
+                        </div>
+                     </div>
+                     <!-- END PORTLET-->
+                  </div>
+               </div>
+               <div class="row-fluid">
+                  <div class="span12">
+                     <!-- BEGIN PORTLET-->	
+                     <div class="widget">
+                        <div class="widget-title">
+                           <h4><i class="icon-reorder"></i>Date Pickers</h4>
+                           <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
+                           <a href="javascript:;" class="icon-refresh"></a>		
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>							
+                        </div>
+                        <div class="widget-body form">
+                           <!-- BEGIN FORM-->
+                           <form action="#" class="form-horizontal">
+                              <div class="control-group">
+                                 <label class="control-label" >Default datepicker</label>
+                                 <div class="controls">
+                                    <input class="input-small date-picker" size="16" type="text" value="12-02-2012" />
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" >Starts with years view</label>
+                                 <div class="controls">
+                                    <div class="input-append date date-picker" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+                                       <input class="input-small date-picker" size="16" type="text" value="12-02-2012" /><span class="add-on"><i class="icon-calendar"></i></span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" >Limit the view mode to months</label>
+                                 <div class="controls">
+                                    <div class="input-append date date-picker" data-date="102/2012" data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+                                       <input class="input-small date-picker" size="16" type="text" value="02/2012" /><span class="add-on"><i class="icon-calendar"></i></span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </form>
+                           <!-- END FORM-->	
+                        </div>
+                     </div>
+                     <!-- END PORTLET-->
+                  </div>
+               </div>
+               <div class="row-fluid">
+                  <div class="span12">
+                     <!-- BEGIN PORTLET-->	
+                     <div class="widget">
+                        <div class="widget-title">
+                           <h4><i class="icon-reorder"></i>Date Range Pickers</h4>
+                           <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
+                           <a href="javascript:;" class="icon-refresh"></a>		
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>							
+                        </div>
+                        <div class="widget-body form">
+                           <!-- BEGIN FORM-->
+                           <form action="#" class="form-horizontal">
+                              <div class="control-group">
+                                 <label class="control-label">Default Date Ranges</label>
+                                 <div class="controls">
+                                    <div class="input-prepend">
+                                       <span class="add-on"><i class="icon-calendar"></i></span><input type="text" class="input-small date-range" />
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" >Advance Date Ranges</label>
+                                 <div class="controls">
+                                    <div id="form-date-range" class="report-range-container">
+                                       <i class="icon-calendar icon-large"></i><span></span> <b class="caret"></b>
+                                    </div>
+                                 </div>
+                              </div>
+                           </form>
+                           <!-- END FORM-->	
+                        </div>
+                     </div>
+                     <!-- END PORTLET-->
+                  </div>
+               </div>
+               <div class="row-fluid">
+                  <div class="span12">
+                     <!-- BEGIN CUSTOM FORMS PORTLET-->
+                     <div class="widget">
+                        <div class="widget-title">
+                           <h4><i class="icon-reorder"></i>Custom  Forms</h4>
+                           <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
+                           <a href="javascript:;" class="icon-refresh"></a>		
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>							
+                        </div>
+                        <div class="widget-body form">
+                           <h5>Inline Form</h5>
+                           <form class="form-inline">
+                              <input type="text" class="input-small" placeholder="Email" />
+                              <input type="password" class="input-small" placeholder="Password" />
+                              <label class="checkbox">
+                              <input type="checkbox" /> Remember me
+                              </label>
+                              <button type="submit" class="btn">Sign in</button>
+                           </form>
+                           <h5>Search Forms</h5>
+                           <form class="form-search">
+                              <input type="text" class="input-xlarge search-query" />
+                              <button type="submit" class="btn">Search</button>
+                           </form>
+                           <h5>Search Forms</h5>
+                           <form class="form-search">
+                              <div class="input-append">
+                                 <input class="input-xlarge" id="appendedInputButton" type="text" />
+                                 <button class="btn" type="button">Search!</button>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                     <!-- END CUSTOM FORMS PORTLET-->
+                  </div>
+               </div>
+               <div class="row-fluid">
+                  <div class="span12">
+                     <!-- BEGIN EXTRAS PORTLET-->
+                     <div class="widget">
+                        <div class="widget-title">
+                           <h4><i class="icon-reorder"></i>Extras</h4>
+                           <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
+                           <a href="javascript:;" class="icon-refresh"></a>		
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>							
+                        </div>
+                        <div class="widget-body form">
+                           <!-- BEGIN FORM-->
+                           <form action="#" class="form-horizontal">                             
+                              <div class="control-group">
+                                 <label class="control-label" >Right Action Input</label>
+                                 <div class="controls">
+                                    <div class="input-append">
+                                       <input class="span12" id="appendedDropdownButton" type="text" />
+                                       <div class="btn-group">
+                                          <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+                                          <ul class="dropdown-menu">
+                                             <li><a href="#">Action</a></li>
+                                             <li><a href="#">Another action</a></li>
+                                             <li><a href="#">Something else here</a></li>
+                                             <li class="divider"></li>
+                                             <li><a href="#">Separated link</a></li>
+                                          </ul>
+                                       </div>
+                                       <!-- /btn-group -->
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" >Left Action Input</label>
+                                 <div class="controls">
+                                    <div class="input-prepend">
+                                       <div class="btn-group">
+                                          <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+                                          <ul class="dropdown-menu">
+                                             <li><a href="#">Action</a></li>
+                                             <li><a href="#">Another action</a></li>
+                                             <li><a href="#">Something else here</a></li>
+                                             <li class="divider"></li>
+                                             <li><a href="#">Separated link</a></li>
+                                          </ul>
+                                       </div>
+                                       <!-- /btn-group -->
+                                       <input class="span12" id="prependedDropdownButton" type="text" />
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" >Basic Toggle Button</label>
+                                 <div class="controls">
+                                    <div class="basic-toggle-button">
+                                       <input type="checkbox" class="toggle" checked="checked" />
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" >Toggle Buttons with Text</label>
+                                 <div class="controls">
+                                    <div class="text-toggle-button">
+                                       <input type="checkbox" class="toggle" />
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" >Styled Toggle Button</label>
+                                 <div class="controls">
+                                    <div class="danger-toggle-button">
+                                       <input type="checkbox" class="toggle" checked="checked" />
+                                    </div>
+                                    <div class="info-toggle-button">
+                                       <input type="checkbox" class="toggle" checked="checked" />
+                                    </div>
+                                    <div class="success-toggle-button">
+                                       <input type="checkbox" class="toggle" checked="checked" />
+                                    </div>
+                                    <div class="warning-toggle-button">
+                                       <input type="checkbox" class="toggle" checked="checked" />
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" >Height Toggle Button</label>
+                                 <div class="controls">
+                                    <div class="height-toggle-button">
+                                       <input type="checkbox" class="toggle" checked="checked" />
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="control-group">
+                                 <label class="control-label" >WYSIWYG Editor</label>
+                                 <div class="controls">
+                                    <textarea class="span12 wysihtml5" rows="6" ></textarea>
+                                 </div>
+                              </div>
+                              <div class="form-actions">
+                                 <button type="submit" class="btn btn-primary">Save</button>
+                                 <button type="button" class="btn">Cancel</button>
+                              </div>
+                           </form>
+                           <!-- END FORM-->
+                        </div>
+                     </div>
+                     <!-- END EXTRAS PORTLET-->
+                  </div>
+               </div>
+               <div class="row-fluid">
+                  <div class="span12">
+                     <!-- BEGIN VALIDATION STATES-->
+                     <div class="widget">
+                        <div class="widget-title">
+                           <h4><i class="icon-reorder"></i>Validation States</h4>
+                           <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
+                           <a href="javascript:;" class="icon-refresh"></a>		
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>							
+                        </div>
+                        <div class="widget-body form">
+                           <!-- BEGIN FORM-->
+                           <form action="#" class="form-horizontal">
+                              <div class="control-group warning">
+                                 <label class="control-label" for="inputWarning">Input with warning</label>
+                                 <div class="controls">
+                                    <input type="text" class="span6" id="inputWarning" />
+                                    <span class="help-inline">Something may have gone wrong</span>
+                                 </div>
+                              </div>
+                              <div class="control-group error">
+                                 <label class="control-label" for="inputError">Input with error</label>
+                                 <div class="controls">
+                                    <input type="text" class="span6" id="inputError" />
+                                    <span class="help-inline">Please correct the error</span>
+                                 </div>
+                              </div>
+                              <div class="control-group success">
+                                 <label class="control-label" for="inputSuccess">Input with success</label>
+                                 <div class="controls">
+                                    <input type="text" class="span6" id="inputSuccess" />
+                                    <span class="help-inline ">Woohoo!</span>
+                                 </div>
+                              </div>
+                              <div class="control-group warning">
+                                 <label class="control-label" >Input with warning</label>
+                                 <div class="controls input-icon">
+                                    <input type="text" class="span6"  />
+                                    <span class="input-warning tooltips" data-original-title="please write a valid password">
+                                    <i class="icon-warning-sign"></i>
+                                    </span>
+                                 </div>
+                              </div>
+                              <div class="control-group error">
+                                 <label class="control-label" >Input with error</label>
+                                 <div class="controls input-icon">
+                                    <input type="text" class="span6"  />
+                                    <span class="input-error tooltips" data-original-title="please write a valid email">
+                                    <i class="icon-exclamation-sign"></i>
+                                    </span>
+                                 </div>
+                              </div>
+                              <div class="control-group success">
+                                 <label class="control-label" >Input with success</label>
+                                 <div class="controls input-icon">
+                                    <input type="text" class="span6"/>
+                                    <span class="input-success tooltips"  data-original-title="Success input!">
+                                    <i class="icon-ok"></i>
+                                    </span>
+                                 </div>
+                              </div>
+                              <div class="form-actions">
+                                 <button type="submit" class="btn btn-primary">Save</button>
+                                 <button type="button" class="btn">Cancel</button>
+                              </div>
+                           </form>
+                           <!-- END FORM-->
+                        </div>
+                     </div>
+                     <!-- END VALIDATION STATES-->
+                  </div>
+               </div>
+            </div>
+            <!-- END PAGE CONTENT-->			
+         </div>
+         <!-- END PAGE CONTAINER-->
+      </div>
+      <!-- END PAGE -->  
+   </div>
+   <!-- END CONTAINER -->
+   <!-- BEGIN FOOTER -->
+   <div id="footer">
+      2012 &copy; Conquer. Admin Dashboard Template.
+      <div class="span pull-right">
+         <span class="go-top"><i class="icon-arrow-up"></i></span>
+      </div>
+   </div>
+   <!-- END FOOTER -->
+   <!-- BEGIN JAVASCRIPTS -->		
+   <!-- Load javascripts at bottom, this will reduce page load time -->
+   <script src="assets/js/jquery-1.8.2.min.js"></script>		
+   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="assets/bootstrap/js/bootstrap-fileupload.js"></script>
+   <script src="assets/js/jquery.blockui.js"></script>
+   <!-- ie8 fixes -->
+   <!--[if lt IE 9]>
+   <script src="assets/js/excanvas.js"></script>
+   <script src="assets/js/respond.js"></script>
+   <![endif]-->
+   <script type="text/javascript" src="assets/chosen-bootstrap/chosen/chosen.jquery.min.js"></script>
+   <script type="text/javascript" src="assets/uniform/jquery.uniform.min.js"></script>
+   <script type="text/javascript" src="assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>	
+   <script type="text/javascript" src="assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+   <script type="text/javascript" src="assets/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js"></script>
+   <script type="text/javascript" src="assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>   
+   <script type="text/javascript" src="assets/bootstrap-daterangepicker/date.js"></script>
+   <script type="text/javascript" src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>	
+   <script type="text/javascript" src="assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>	
+   <script type="text/javascript" src="assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+   <script src="assets/fancybox/source/jquery.fancybox.pack.js"></script>
+   <script src="assets/js/app.js"></script>		
+   <script>
+      jQuery(document).ready(function() {			
+      	// initiate layout and plugins
+      	App.init();
+      });
+   </script>
+   <!-- END JAVASCRIPTS -->	
+</body>
+<!-- END BODY -->
+</html>

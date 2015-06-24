@@ -50,7 +50,7 @@ public class Device implements Serializable {
     /**
      * @param deviceId the device name to set
      */
-    public void setDeviceName(Long deviceId) {
+    public void setDeviceId(Long deviceId) {
         this.deviceId = deviceId;
     }
 
@@ -116,7 +116,10 @@ public class Device implements Serializable {
     public Long getUserId() {
         return userId;
     }
-
+    
+    public User getUser(){
+        return user;
+    }
     /**
      * @param userId the user id to set
      */

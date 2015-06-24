@@ -1,6 +1,6 @@
 package com.mycompany.Controller;
 
-import com.mycompany.DAO.UserDao;
+import com.mycompany.DAO.FeedDataDao;
 import com.mycompany.Domain.User;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Transactional
 public class FeedDataController {
     @Autowired
-    UserDao userDao ;
+    FeedDataDao userDao ;
     
     
     @RequestMapping(value = "newFeedData.htm",method = RequestMethod.GET)
@@ -31,8 +31,8 @@ public class FeedDataController {
             @RequestParam("registrationDate") String registrationDate,
             HttpServletResponse response) throws Exception
     {
-        User user=new User(firstName,lastName,email,password,registrationDate);
-        userDao.insertUser(user);
+        //User user=new User(firstName,lastName,email,password,registrationDate);
+        //userDao.insertUser(user);
         response.getWriter().write("User Added");
     }
 }

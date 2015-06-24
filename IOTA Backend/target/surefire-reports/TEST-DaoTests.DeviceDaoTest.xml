@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="DaoTests.DeviceDaoTest" time="5.881" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="DaoTests.DeviceDaoTest" time="107.129" errors="2" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_45\jre\bin"/>
@@ -62,6 +62,480 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="DaoTests.DeviceDaoTest" name="testGetAll" time="5.517"/>
-  <testcase classname="DaoTests.DeviceDaoTest" name="testInsert" time="0.037"/>
+  <testcase classname="DaoTests.DeviceDaoTest" name="testGetAll" time="77.082">
+    <error message="Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: org.hibernate.exception.JDBCConnectionException: Could not open connection" type="org.springframework.transaction.CannotCreateTransactionException">org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: org.hibernate.exception.JDBCConnectionException: Could not open connection
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:428)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:372)
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener$TransactionContext.startTransaction(TransactionalTestExecutionListener.java:583)
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener.startNewTransaction(TransactionalTestExecutionListener.java:276)
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener.beforeTestMethod(TransactionalTestExecutionListener.java:171)
+	at org.springframework.test.context.TestContextManager.beforeTestMethod(TestContextManager.java:348)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:73)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:83)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:88)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.JDBCConnectionException: Could not open connection
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1387)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1310)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.throwPersistenceException(AbstractEntityManagerImpl.java:1397)
+	at org.hibernate.ejb.TransactionImpl.begin(TransactionImpl.java:62)
+	at org.springframework.orm.jpa.DefaultJpaDialect.beginTransaction(DefaultJpaDialect.java:71)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.beginTransaction(HibernateJpaDialect.java:60)
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:378)
+	... 31 more
+Caused by: org.hibernate.exception.JDBCConnectionException: Could not open connection
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:132)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:49)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:125)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:110)
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.obtainConnection(LogicalConnectionImpl.java:221)
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.getConnection(LogicalConnectionImpl.java:157)
+	at org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction.doBegin(JdbcTransaction.java:67)
+	at org.hibernate.engine.transaction.spi.AbstractTransactionImpl.begin(AbstractTransactionImpl.java:160)
+	at org.hibernate.internal.SessionImpl.beginTransaction(SessionImpl.java:1426)
+	at org.hibernate.ejb.TransactionImpl.begin(TransactionImpl.java:59)
+	... 34 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1121)
+	at com.mysql.jdbc.MysqlIO.readPacket(MysqlIO.java:673)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1084)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2483)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2516)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2301)
+	at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:834)
+	at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:416)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:317)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at org.springframework.jdbc.datasource.DriverManagerDataSource.getConnectionFromDriverManager(DriverManagerDataSource.java:173)
+	at org.springframework.jdbc.datasource.DriverManagerDataSource.getConnectionFromDriver(DriverManagerDataSource.java:164)
+	at org.springframework.jdbc.datasource.AbstractDriverBasedDataSource.getConnectionFromDriver(AbstractDriverBasedDataSource.java:153)
+	at org.springframework.jdbc.datasource.AbstractDriverBasedDataSource.getConnection(AbstractDriverBasedDataSource.java:119)
+	at org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider.getConnection(InjectedDataSourceConnectionProvider.java:70)
+	at org.hibernate.internal.AbstractSessionImpl$NonContextualJdbcConnectionAccess.obtainConnection(AbstractSessionImpl.java:292)
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.obtainConnection(LogicalConnectionImpl.java:214)
+	... 39 more
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:209)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at com.mysql.jdbc.util.ReadAheadInputStream.fill(ReadAheadInputStream.java:114)
+	at com.mysql.jdbc.util.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:161)
+	at com.mysql.jdbc.util.ReadAheadInputStream.read(ReadAheadInputStream.java:189)
+	at com.mysql.jdbc.MysqlIO.readFully(MysqlIO.java:3049)
+	at com.mysql.jdbc.MysqlIO.readPacket(MysqlIO.java:597)
+	... 61 more
+</error>
+    <system-err>Jun 24, 2015 5:26:50 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [configuration/applicationContext.xml]
+Jun 24, 2015 5:26:51 PM org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider registerDefaultFilters
+INFO: JSR-250 &apos;javax.annotation.ManagedBean&apos; found and supported for component scanning
+Jun 24, 2015 5:26:51 PM org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider registerDefaultFilters
+INFO: JSR-330 &apos;javax.inject.Named&apos; annotation found and supported for component scanning
+Jun 24, 2015 5:26:52 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.support.GenericApplicationContext@26be92ad: startup date [Wed Jun 24 17:26:52 EET 2015]; root of context hierarchy
+Jun 24, 2015 5:26:53 PM org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor &lt;init&gt;
+INFO: JSR-330 &apos;javax.inject.Inject&apos; annotation found and supported for autowiring
+Jun 24, 2015 5:26:54 PM org.springframework.jdbc.datasource.DriverManagerDataSource setDriverClassName
+INFO: Loaded JDBC driver: com.mysql.jdbc.Driver
+Jun 24, 2015 5:26:55 PM org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean createNativeEntityManagerFactory
+INFO: Building JPA container EntityManagerFactory for persistence unit &apos;default&apos;
+Jun 24, 2015 5:26:56 PM org.hibernate.annotations.common.Version &lt;clinit&gt;
+INFO: HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+Jun 24, 2015 5:26:56 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {4.2.6.Final}
+Jun 24, 2015 5:26:56 PM org.hibernate.cfg.Environment &lt;clinit&gt;
+INFO: HHH000206: hibernate.properties not found
+Jun 24, 2015 5:26:56 PM org.hibernate.cfg.Environment buildBytecodeProvider
+INFO: HHH000021: Bytecode provider name : javassist
+Jun 24, 2015 5:26:56 PM org.hibernate.ejb.Ejb3Configuration configure
+INFO: HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+Jun 24, 2015 5:26:57 PM org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator instantiateExplicitConnectionProvider
+INFO: HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+Jun 24, 2015 5:27:27 PM org.hibernate.engine.jdbc.internal.JdbcServicesImpl configure
+WARN: HHH000342: Could not obtain connection to query metadata : Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+Jun 24, 2015 5:27:28 PM org.hibernate.dialect.Dialect &lt;init&gt;
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+Jun 24, 2015 5:27:28 PM org.hibernate.engine.jdbc.internal.LobCreatorBuilder useContextualLobCreation
+INFO: HHH000422: Disabling contextual LOB creation as connection was null
+Jun 24, 2015 5:27:28 PM org.hibernate.engine.transaction.internal.TransactionFactoryInitiator initiateService
+INFO: HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+Jun 24, 2015 5:27:28 PM org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory &lt;init&gt;
+INFO: HHH000397: Using ASTQueryTranslatorFactory
+Jun 24, 2015 5:27:29 PM org.hibernate.validator.internal.util.Version &lt;clinit&gt;
+INFO: HV000001: Hibernate Validator 4.3.0.Final
+Jun 24, 2015 5:27:29 PM org.hibernate.search.Version &lt;clinit&gt;
+INFO: HSEARCH000034: Hibernate Search 4.4.0.Final
+Jun 24, 2015 5:27:31 PM org.hibernate.search.impl.ConfigContext getLuceneMatchVersion
+WARN: HSEARCH000075: Configuration setting hibernate.search.lucene_version was not specified, using LUCENE_CURRENT.
+Jun 24, 2015 5:27:31 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@7692d9cc: defining beans [dataSource,entityManagerFactory,transactionManager,mvcContentNegotiationManager,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.validation.beanvalidation.LocalValidatorFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,dashboardController,deviceController,feedController,feedDataController,userController,DeviceDao,FeedDao,FeedDataDao,UserDao,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+Jun 24, 2015 5:27:32 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping registerHandlerMethod
+INFO: Mapped &quot;{[/pages/Dashboard/addfeed.htm],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mycompany.Controller.DashboardController.redirectToAddFeed(java.lang.Long,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+Jun 24, 2015 5:27:32 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping registerHandlerMethod
+INFO: Mapped &quot;{[/pages/Dashboard/adddevice.htm],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}&quot; onto public java.lang.String com.mycompany.Controller.DashboardController.addDevice(java.lang.String,java.lang.Long,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+Jun 24, 2015 5:27:32 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping registerHandlerMethod
+INFO: Mapped &quot;{[/pages/Dashboard/addnewfeed.htm],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}&quot; onto public java.lang.String com.mycompany.Controller.DashboardController.addFeed(java.lang.String,java.lang.Integer,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+Jun 24, 2015 5:27:32 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping registerHandlerMethod
+INFO: Mapped &quot;{[/pages/Dashboard/confirmLogin.htm],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mycompany.Controller.DashboardController.AcceptInput(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+Jun 24, 2015 5:27:32 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping registerHandlerMethod
+INFO: Mapped &quot;{[/pages/Dashboard/signup.htm],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}&quot; onto public java.lang.String com.mycompany.Controller.DashboardController.AcceptInput(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+Jun 24, 2015 5:27:32 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping registerHandlerMethod
+INFO: Mapped &quot;{[/Device/newDevice.htm],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}&quot; onto public void com.mycompany.Controller.DeviceController.AcceptInput(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+Jun 24, 2015 5:27:32 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping registerHandlerMethod
+INFO: Mapped &quot;{[/Feed/newFeed.htm],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}&quot; onto public void com.mycompany.Controller.FeedController.AcceptInput(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+Jun 24, 2015 5:27:32 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping registerHandlerMethod
+INFO: Mapped &quot;{[/FeedData/newFeedData.htm],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}&quot; onto public void com.mycompany.Controller.FeedDataController.AcceptInput(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+Jun 24, 2015 5:27:32 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping registerHandlerMethod
+INFO: Mapped &quot;{[/User/newUser.htm],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}&quot; onto public void com.mycompany.Controller.UserController.AcceptInput(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+Jun 24, 2015 5:28:04 PM org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
+WARN: SQL Error: 0, SQLState: 08S01
+Jun 24, 2015 5:28:04 PM org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
+ERROR: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+Jun 24, 2015 5:28:05 PM org.springframework.test.context.TestContextManager beforeTestMethod
+WARNING: Caught exception while allowing TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener@2f7dcef2] to process &apos;before&apos; execution of test method [public void DaoTests.DeviceDaoTest.testGetAll() throws java.lang.Exception] for test instance [DaoTests.DeviceDaoTest@4a3be6a5]
+org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: org.hibernate.exception.JDBCConnectionException: Could not open connection
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:428)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:372)
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener$TransactionContext.startTransaction(TransactionalTestExecutionListener.java:583)
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener.startNewTransaction(TransactionalTestExecutionListener.java:276)
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener.beforeTestMethod(TransactionalTestExecutionListener.java:171)
+	at org.springframework.test.context.TestContextManager.beforeTestMethod(TestContextManager.java:348)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:73)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:83)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:88)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.JDBCConnectionException: Could not open connection
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1387)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1310)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.throwPersistenceException(AbstractEntityManagerImpl.java:1397)
+	at org.hibernate.ejb.TransactionImpl.begin(TransactionImpl.java:62)
+	at org.springframework.orm.jpa.DefaultJpaDialect.beginTransaction(DefaultJpaDialect.java:71)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.beginTransaction(HibernateJpaDialect.java:60)
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:378)
+	... 31 more
+Caused by: org.hibernate.exception.JDBCConnectionException: Could not open connection
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:132)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:49)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:125)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:110)
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.obtainConnection(LogicalConnectionImpl.java:221)
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.getConnection(LogicalConnectionImpl.java:157)
+	at org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction.doBegin(JdbcTransaction.java:67)
+	at org.hibernate.engine.transaction.spi.AbstractTransactionImpl.begin(AbstractTransactionImpl.java:160)
+	at org.hibernate.internal.SessionImpl.beginTransaction(SessionImpl.java:1426)
+	at org.hibernate.ejb.TransactionImpl.begin(TransactionImpl.java:59)
+	... 34 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1121)
+	at com.mysql.jdbc.MysqlIO.readPacket(MysqlIO.java:673)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1084)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2483)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2516)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2301)
+	at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:834)
+	at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:416)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:317)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at org.springframework.jdbc.datasource.DriverManagerDataSource.getConnectionFromDriverManager(DriverManagerDataSource.java:173)
+	at org.springframework.jdbc.datasource.DriverManagerDataSource.getConnectionFromDriver(DriverManagerDataSource.java:164)
+	at org.springframework.jdbc.datasource.AbstractDriverBasedDataSource.getConnectionFromDriver(AbstractDriverBasedDataSource.java:153)
+	at org.springframework.jdbc.datasource.AbstractDriverBasedDataSource.getConnection(AbstractDriverBasedDataSource.java:119)
+	at org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider.getConnection(InjectedDataSourceConnectionProvider.java:70)
+	at org.hibernate.internal.AbstractSessionImpl$NonContextualJdbcConnectionAccess.obtainConnection(AbstractSessionImpl.java:292)
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.obtainConnection(LogicalConnectionImpl.java:214)
+	... 39 more
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:209)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at com.mysql.jdbc.util.ReadAheadInputStream.fill(ReadAheadInputStream.java:114)
+	at com.mysql.jdbc.util.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:161)
+	at com.mysql.jdbc.util.ReadAheadInputStream.read(ReadAheadInputStream.java:189)
+	at com.mysql.jdbc.MysqlIO.readFully(MysqlIO.java:3049)
+	at com.mysql.jdbc.MysqlIO.readPacket(MysqlIO.java:597)
+	... 61 more
+
+</system-err>
+  </testcase>
+  <testcase classname="DaoTests.DeviceDaoTest" name="testInsert" time="29.405">
+    <error message="Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: org.hibernate.exception.JDBCConnectionException: Could not open connection" type="org.springframework.transaction.CannotCreateTransactionException">org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: org.hibernate.exception.JDBCConnectionException: Could not open connection
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:428)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:372)
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener$TransactionContext.startTransaction(TransactionalTestExecutionListener.java:583)
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener.startNewTransaction(TransactionalTestExecutionListener.java:276)
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener.beforeTestMethod(TransactionalTestExecutionListener.java:171)
+	at org.springframework.test.context.TestContextManager.beforeTestMethod(TestContextManager.java:348)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:73)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:83)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:88)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.JDBCConnectionException: Could not open connection
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1387)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1310)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.throwPersistenceException(AbstractEntityManagerImpl.java:1397)
+	at org.hibernate.ejb.TransactionImpl.begin(TransactionImpl.java:62)
+	at org.springframework.orm.jpa.DefaultJpaDialect.beginTransaction(DefaultJpaDialect.java:71)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.beginTransaction(HibernateJpaDialect.java:60)
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:378)
+	... 31 more
+Caused by: org.hibernate.exception.JDBCConnectionException: Could not open connection
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:132)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:49)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:125)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:110)
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.obtainConnection(LogicalConnectionImpl.java:221)
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.getConnection(LogicalConnectionImpl.java:157)
+	at org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction.doBegin(JdbcTransaction.java:67)
+	at org.hibernate.engine.transaction.spi.AbstractTransactionImpl.begin(AbstractTransactionImpl.java:160)
+	at org.hibernate.internal.SessionImpl.beginTransaction(SessionImpl.java:1426)
+	at org.hibernate.ejb.TransactionImpl.begin(TransactionImpl.java:59)
+	... 34 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1121)
+	at com.mysql.jdbc.MysqlIO.readPacket(MysqlIO.java:673)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1084)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2483)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2516)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2301)
+	at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:834)
+	at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:416)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:317)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at org.springframework.jdbc.datasource.DriverManagerDataSource.getConnectionFromDriverManager(DriverManagerDataSource.java:173)
+	at org.springframework.jdbc.datasource.DriverManagerDataSource.getConnectionFromDriver(DriverManagerDataSource.java:164)
+	at org.springframework.jdbc.datasource.AbstractDriverBasedDataSource.getConnectionFromDriver(AbstractDriverBasedDataSource.java:153)
+	at org.springframework.jdbc.datasource.AbstractDriverBasedDataSource.getConnection(AbstractDriverBasedDataSource.java:119)
+	at org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider.getConnection(InjectedDataSourceConnectionProvider.java:70)
+	at org.hibernate.internal.AbstractSessionImpl$NonContextualJdbcConnectionAccess.obtainConnection(AbstractSessionImpl.java:292)
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.obtainConnection(LogicalConnectionImpl.java:214)
+	... 39 more
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:209)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at com.mysql.jdbc.util.ReadAheadInputStream.fill(ReadAheadInputStream.java:114)
+	at com.mysql.jdbc.util.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:161)
+	at com.mysql.jdbc.util.ReadAheadInputStream.read(ReadAheadInputStream.java:189)
+	at com.mysql.jdbc.MysqlIO.readFully(MysqlIO.java:3049)
+	at com.mysql.jdbc.MysqlIO.readPacket(MysqlIO.java:597)
+	... 61 more
+</error>
+    <system-err>Jun 24, 2015 5:28:35 PM org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
+WARN: SQL Error: 0, SQLState: 08S01
+Jun 24, 2015 5:28:35 PM org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
+ERROR: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+Jun 24, 2015 5:28:35 PM org.springframework.test.context.TestContextManager beforeTestMethod
+WARNING: Caught exception while allowing TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener@2f7dcef2] to process &apos;before&apos; execution of test method [public void DaoTests.DeviceDaoTest.testInsert() throws java.lang.Exception] for test instance [DaoTests.DeviceDaoTest@56f71edb]
+org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: org.hibernate.exception.JDBCConnectionException: Could not open connection
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:428)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:372)
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener$TransactionContext.startTransaction(TransactionalTestExecutionListener.java:583)
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener.startNewTransaction(TransactionalTestExecutionListener.java:276)
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener.beforeTestMethod(TransactionalTestExecutionListener.java:171)
+	at org.springframework.test.context.TestContextManager.beforeTestMethod(TestContextManager.java:348)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:73)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:83)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:88)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.JDBCConnectionException: Could not open connection
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1387)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1310)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.throwPersistenceException(AbstractEntityManagerImpl.java:1397)
+	at org.hibernate.ejb.TransactionImpl.begin(TransactionImpl.java:62)
+	at org.springframework.orm.jpa.DefaultJpaDialect.beginTransaction(DefaultJpaDialect.java:71)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.beginTransaction(HibernateJpaDialect.java:60)
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:378)
+	... 31 more
+Caused by: org.hibernate.exception.JDBCConnectionException: Could not open connection
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:132)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:49)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:125)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:110)
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.obtainConnection(LogicalConnectionImpl.java:221)
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.getConnection(LogicalConnectionImpl.java:157)
+	at org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction.doBegin(JdbcTransaction.java:67)
+	at org.hibernate.engine.transaction.spi.AbstractTransactionImpl.begin(AbstractTransactionImpl.java:160)
+	at org.hibernate.internal.SessionImpl.beginTransaction(SessionImpl.java:1426)
+	at org.hibernate.ejb.TransactionImpl.begin(TransactionImpl.java:59)
+	... 34 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1121)
+	at com.mysql.jdbc.MysqlIO.readPacket(MysqlIO.java:673)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1084)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2483)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2516)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2301)
+	at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:834)
+	at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:416)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:317)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at org.springframework.jdbc.datasource.DriverManagerDataSource.getConnectionFromDriverManager(DriverManagerDataSource.java:173)
+	at org.springframework.jdbc.datasource.DriverManagerDataSource.getConnectionFromDriver(DriverManagerDataSource.java:164)
+	at org.springframework.jdbc.datasource.AbstractDriverBasedDataSource.getConnectionFromDriver(AbstractDriverBasedDataSource.java:153)
+	at org.springframework.jdbc.datasource.AbstractDriverBasedDataSource.getConnection(AbstractDriverBasedDataSource.java:119)
+	at org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider.getConnection(InjectedDataSourceConnectionProvider.java:70)
+	at org.hibernate.internal.AbstractSessionImpl$NonContextualJdbcConnectionAccess.obtainConnection(AbstractSessionImpl.java:292)
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.obtainConnection(LogicalConnectionImpl.java:214)
+	... 39 more
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:209)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at com.mysql.jdbc.util.ReadAheadInputStream.fill(ReadAheadInputStream.java:114)
+	at com.mysql.jdbc.util.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:161)
+	at com.mysql.jdbc.util.ReadAheadInputStream.read(ReadAheadInputStream.java:189)
+	at com.mysql.jdbc.MysqlIO.readFully(MysqlIO.java:3049)
+	at com.mysql.jdbc.MysqlIO.readPacket(MysqlIO.java:597)
+	... 61 more
+
+</system-err>
+  </testcase>
 </testsuite>
