@@ -29,7 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
 @TransactionConfiguration(defaultRollback = false)
 @ContextConfiguration({"classpath:configuration/applicationContext.xml"})
 @Transactional
-@SessionAttributes({"user_id","devices"})
+@SessionAttributes({"user_id", "devices"})
 public class DashboardController {
 
     @Autowired
@@ -40,7 +40,7 @@ public class DashboardController {
 
     @Autowired
     FeedDao feedDao;
-    
+
     @RequestMapping(value = "confirmLogin.htm", method = RequestMethod.POST)
     public ModelAndView AcceptInput(
             @RequestParam("username") String username,
@@ -49,13 +49,13 @@ public class DashboardController {
 
         ModelAndView modelAndView = new ModelAndView();
 
-        Long userId=null;
+        Long userId = null;
         Boolean loginSuccess = false;
         List<User> users = userDao.getAllUsers();
         for (int i = 0; i < users.size(); i++) {
             if (users.get(i).getEmail().equalsIgnoreCase(username)) {
                 if (users.get(i).getPassword().equals(password)) {
-                    userId=users.get(i).getUserId();
+                    userId = users.get(i).getUserId();
                     modelAndView.addObject("user_id", userId);
                     loginSuccess = true;
                 }
@@ -64,8 +64,8 @@ public class DashboardController {
         }
         //response.getWriter().write("Received " + username + " " + password + " " + loginSuccess.toString());
         if (loginSuccess) {
-            ArrayList<Device> devices=(ArrayList<Device>)deviceDao.getAllUserDevices(userId);
-            modelAndView.addObject("devices",devices);
+            ArrayList<Device> devices = (ArrayList<Device>) deviceDao.getAllUserDevices(userId);
+            modelAndView.addObject("devices", devices);
             modelAndView.setViewName("index.jsp");
         } else {
             modelAndView.setViewName("login.jsp");
@@ -95,7 +95,7 @@ public class DashboardController {
     }
 
     @RequestMapping(value = "adddevice.htm", method = RequestMethod.POST)
-    public String addDevice(
+    public ModelAndView addDevice(
             @RequestParam("devicename") String deviceName,
             @RequestParam("userId") Long userId,
             HttpServletResponse response) throws Exception {
@@ -107,33 +107,41 @@ public class DashboardController {
         device.setDeviceName(deviceName);
         device.setCreationDate(formattedDate);
         deviceDao.insert(device);
-        return "index.jsp";
+
+        ModelAndView modelAndView = new ModelAndView();
+        List<Device> devices = deviceDao.getAllUserDevices(userId);
+        modelAndView.addObject("devices", devices);
+
+        modelAndView.setViewName("index.jsp");
+
+        return modelAndView;
+
         //response.getWriter().write("Received " + username+" "+password+" "+loginSuccess.toString());
     }
-    
+
     @RequestMapping(value = "addfeed.htm", method = RequestMethod.GET)
     public ModelAndView redirectToAddFeed(
             @RequestParam("id") Long userId,
             HttpServletResponse response) throws Exception {
         ModelAndView modelAndView = new ModelAndView();
-        List<Device> devices=deviceDao.getAllUserDevices(userId);
+        List<Device> devices = deviceDao.getAllUserDevices(userId);
         modelAndView.addObject("devices", devices);
-                   
-       modelAndView.setViewName("addfeed.jsp");
-        
+
+        modelAndView.setViewName("addfeed.jsp");
+
         return modelAndView;
     }
 
-@RequestMapping(value = "addnewfeed.htm", method = RequestMethod.POST)
+    @RequestMapping(value = "addnewfeed.htm", method = RequestMethod.POST)
     public String addFeed(
             @RequestParam("feedname") String feedName,
             @RequestParam("device_id") Integer deviceId,
             HttpServletResponse response) throws Exception {
-        Feed feed=new Feed();
+        Feed feed = new Feed();
         feed.setFeedName(feedName);
         feed.setDeviceId(deviceId);
         feedDao.insert(feed);
-        
+
         return "index.jsp";
     }
 }
