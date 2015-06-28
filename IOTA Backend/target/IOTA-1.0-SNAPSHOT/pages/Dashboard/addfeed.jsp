@@ -84,7 +84,7 @@
                 </div>
                 <input type="submit" id="login-btn" class="btn btn-block btn-inverse" value="Add Feed" />
             </form><br>
-            <form id="Back" class="form-vertical no-padding no-margin" action="index.html">
+            <form id="Back" class="form-vertical no-padding no-margin" action="index.jsp">
                 <input type="submit" id="back-btn" class="btn btn-block btn-inverse" value="Dashboard" />
             </form>
             <!-- END LOGIN FORM -->

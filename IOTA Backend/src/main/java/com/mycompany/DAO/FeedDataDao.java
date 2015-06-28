@@ -23,7 +23,13 @@ public class FeedDataDao {
     
     public List<FeedData> getAll()
     {
-        List<FeedData> feedData = entityManager.createQuery("from Feed ").getResultList();
+        List<FeedData> feedData = entityManager.createQuery("from FeedData ").getResultList();
+        return feedData ;
+    }
+    
+    public List<FeedData> getAllFeedData(Long feedId)
+    {
+        List<FeedData> feedData = entityManager.createQuery("from FeedData where feedId = :code  ORDER BY feedDate DESC").setParameter("code", feedId).setMaxResults(10).getResultList();
         return feedData ;
     }
     

@@ -57,7 +57,7 @@
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				<!-- BEGIN LOGO -->
-				<a class="brand" href="index.html">
+				<a class="brand" href="index.jsp">
 				<img src="assets/img/logo.png" alt="Conquer"/>
 				</a>
 				<!-- END LOGO -->
@@ -292,7 +292,7 @@
 			<!-- BEGIN SIDEBAR MENU -->
 			<ul>
 				<li>
-					<a href="index.html">
+					<a href="index.jsp">
 					<i class="icon-home"></i> Dashboard
 					</a>					
 				</li>

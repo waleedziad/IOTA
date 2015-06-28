@@ -27,4 +27,10 @@ public class FeedDao {
         return feeds ;
     }
     
+    public List<Feed> getAllDeviceFeeds(Long deviceId)
+    {
+        List<Feed> feeds = entityManager.createQuery("from Feed where deviceId = :code ").setParameter("code", deviceId).getResultList();
+        return feeds ;
+    }
+    
 }

@@ -10,11 +10,11 @@ public class Feed implements Serializable {
     @Id
     @Column(name = "feed_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int feedId;
+    private Long feedId;
     @Column(name = "feed_name")
     private String feedName;
     @Column(name = "device_id")
-    private int deviceId;
+    private Long deviceId;
     
     @ManyToOne(optional = false)
     @JoinColumn(name = "device_id", insertable = false, updatable = false)
@@ -23,7 +23,7 @@ public class Feed implements Serializable {
     public Feed() {
     }
 
-    public Feed(String feedName, int deviceId) {
+    public Feed(String feedName, Long deviceId) {
         this.feedName = feedName;
         this.deviceId = deviceId;
     }
@@ -31,14 +31,14 @@ public class Feed implements Serializable {
     /**
      * @return the feed id
      */
-    public int getFeedId() {
+    public Long getFeedId() {
         return feedId;
     }
 
     /**
      * @param feedId the feed id to set
      */
-    public void setFeedId(int feedId) {
+    public void setFeedId(Long feedId) {
         this.feedId = feedId;
     }
 
@@ -59,14 +59,14 @@ public class Feed implements Serializable {
     /**
      * @return the device id
      */
-    public int getDeviceId() {
+    public Long getDeviceId() {
         return deviceId;
     }
 
     /**
      * @param deviceId the device id to set
      */
-    public void setDeviceId(int deviceId) {
+    public void setDeviceId(Long deviceId) {
         this.deviceId = deviceId;
     }
     

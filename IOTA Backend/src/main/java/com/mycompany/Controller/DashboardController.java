@@ -2,9 +2,11 @@ package com.mycompany.Controller;
 
 import com.mycompany.DAO.DeviceDao;
 import com.mycompany.DAO.FeedDao;
+import com.mycompany.DAO.FeedDataDao;
 import com.mycompany.DAO.UserDao;
 import com.mycompany.Domain.Device;
 import com.mycompany.Domain.Feed;
+import com.mycompany.Domain.FeedData;
 import com.mycompany.Domain.User;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -29,7 +31,7 @@ import org.springframework.web.servlet.ModelAndView;
 @TransactionConfiguration(defaultRollback = false)
 @ContextConfiguration({"classpath:configuration/applicationContext.xml"})
 @Transactional
-@SessionAttributes({"user_id", "devices"})
+@SessionAttributes({"user_id", "devices", "points", "devicesInfo"})
 public class DashboardController {
 
     @Autowired
@@ -40,6 +42,27 @@ public class DashboardController {
 
     @Autowired
     FeedDao feedDao;
+
+    @Autowired
+    FeedDataDao feedDataDao;
+
+    public class FeedInfo {
+
+        public Feed feed;
+        public ArrayList<FeedData> feedData = new ArrayList<FeedData>();
+
+        public FeedInfo() {
+            FeedData data = new FeedData();
+            data.setFeedValue(0 + "");
+            feedData.add(data);
+        }
+    }
+
+    public class DeviceInfo {
+
+        public Device device;
+        public ArrayList<FeedInfo> feeds = new ArrayList<FeedInfo>();
+    }
 
     @RequestMapping(value = "confirmLogin.htm", method = RequestMethod.POST)
     public ModelAndView AcceptInput(
@@ -64,8 +87,31 @@ public class DashboardController {
         }
         //response.getWriter().write("Received " + username + " " + password + " " + loginSuccess.toString());
         if (loginSuccess) {
+            ArrayList<DeviceInfo> deviceInfo = new ArrayList<DeviceInfo>();
             ArrayList<Device> devices = (ArrayList<Device>) deviceDao.getAllUserDevices(userId);
+            for (int i = 0; i < devices.size(); i++) {
+                DeviceInfo info = new DeviceInfo();
+                info.device = devices.get(i);
+                ArrayList<Feed> feeds = (ArrayList<Feed>) feedDao.getAllDeviceFeeds(info.device.getDeviceId());
+                for (int j = 0; j < feeds.size(); j++) {
+                    FeedInfo feedInfo = new FeedInfo();
+                    feedInfo.feed = feeds.get(j);
+                    feedInfo.feedData = (ArrayList<FeedData>) feedDataDao.getAllFeedData(feedInfo.feed.getFeedId());
+                    if (feedInfo.feedData.size() == 0) {
+                        FeedData data = new FeedData();
+                        data.setFeedValue(0 + "");
+                        feedInfo.feedData.add(data);
+                    }
+
+                    info.feeds.add(feedInfo);
+                }
+
+                deviceInfo.add(info);
+            }
+
+            modelAndView.addObject("devicesInfo", deviceInfo);
             modelAndView.addObject("devices", devices);
+            modelAndView.addObject("points", deviceDao.getAllGraphData(userId));
             modelAndView.setViewName("index.jsp");
         } else {
             modelAndView.setViewName("login.jsp");
@@ -111,7 +157,7 @@ public class DashboardController {
         ModelAndView modelAndView = new ModelAndView();
         List<Device> devices = deviceDao.getAllUserDevices(userId);
         modelAndView.addObject("devices", devices);
-
+        modelAndView.addObject("points", deviceDao.getAllGraphData(userId));
         modelAndView.setViewName("index.jsp");
 
         return modelAndView;
@@ -135,7 +181,7 @@ public class DashboardController {
     @RequestMapping(value = "addnewfeed.htm", method = RequestMethod.POST)
     public String addFeed(
             @RequestParam("feedname") String feedName,
-            @RequestParam("device_id") Integer deviceId,
+            @RequestParam("device_id") Long deviceId,
             HttpServletResponse response) throws Exception {
         Feed feed = new Feed();
         feed.setFeedName(feedName);

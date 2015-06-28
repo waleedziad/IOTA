@@ -2119,7 +2119,7 @@ var App = function () {
 
             if (isMainPage) {
                 handlKnobElements();
-                handleDashboardCharts(); // handles plot charts for main page
+               // handleDashboardCharts(); // handles plot charts for main page
                 handleJQVMAP(); // handles vector maps for home page
                 handleDashboardCalendar(); // handles full calendar for main page
             } else {

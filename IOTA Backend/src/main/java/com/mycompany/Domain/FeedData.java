@@ -1,6 +1,7 @@
 package com.mycompany.Domain;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.*;
 
 @Entity
@@ -9,14 +10,14 @@ public class FeedData implements Serializable {
 
     @Id
     @Column(name = "feeddata_id")
-    private int feedDataId;
+    private Long feedDataId;
 
     @Column(name = "feed_value")
     private String feedValue;
     @Column(name = "feed_date")
-    private String feedDate;
+    private Date feedDate;
     @Column(name = "feed_id")
-    private int feedId;
+    private Long feedId;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "feed_id", insertable = false, updatable = false)
@@ -25,7 +26,7 @@ public class FeedData implements Serializable {
     public FeedData() {
     }
 
-    public FeedData(String feedValue, String feedDate, int feedId) {
+    public FeedData(String feedValue, Date feedDate, Long feedId) {
         this.feedValue = feedValue;
         this.feedDate = feedDate;
         this.feedId = feedId;
@@ -48,28 +49,28 @@ public class FeedData implements Serializable {
     /**
      * @return the feed date
      */
-    public String getFeedDate() {
+    public Date getFeedDate() {
         return feedDate;
     }
 
     /**
      * @param feedDate the feed date to set
      */
-    public void setFeedDate(String feedDate) {
+    public void setFeedDate(Date feedDate) {
         this.feedDate = feedDate;
     }
 
     /**
      * @return the feed id
      */
-    public int getFeedId() {
+    public Long getFeedId() {
         return feedId;
     }
 
     /**
      * @param feedId the feed id to set
      */
-    public void setFeedId(int feedId) {
+    public void setFeedId(Long feedId) {
         this.feedId = feedId;
     }
 

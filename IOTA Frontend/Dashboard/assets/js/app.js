@@ -852,6 +852,39 @@ var App = function () {
                 [29, 27 + randValue()],
                 [30, 31 + randValue()]
             ];
+ 
+            var visitorsEX = [
+                [1, randValue() - 5],
+                [2, randValue() - 5],
+                [3, randValue() - 5],
+                [4, 6 + randValue()],
+                [5, 5 + randValue()],
+                [8, 20 + randValue()],
+                [10, 25 + randValue()],
+                [8, 11 + randValue()],
+                [9, 16 + randValue()],
+                [10, 18 + randValue()],
+                [11, 19 + randValue()],
+                [12, 50 + randValue()],
+                [13, 51 + randValue()],
+                [14, 12 + randValue()],
+                [15, 13 + randValue()],
+                [16, 14 + randValue()],
+                [17, 15 + randValue()],
+                [18, 15 + randValue()],
+                [19, 16 + randValue()],
+                [20, 17 + randValue()],
+                [21, 18 + randValue()],
+                [22, 19 + randValue()],
+                [23, 20 + randValue()],
+                [24, 21 + randValue()],
+                [25, 14 + randValue()],
+                [26, 24 + randValue()],
+                [27, 25 + randValue()],
+                [28, 26 + randValue()],
+                [29, 27 + randValue()],
+                [30, 31 + randValue()]
+            ];
 
             var plot = $.plot($("#chart_2"), [{
                 data: pageviews,
@@ -859,7 +892,12 @@ var App = function () {
             }, {
                 data: visitors,
                 label: "Page Views"
-            }], {
+            }
+            ,{
+                data: visitorsEX,
+                label: "Vistiors Ex"
+            }
+            ], {
                 series: {
                     lines: {
                         show: true,
