@@ -1,8 +1,0 @@
-#surefire
-#Fri Jun 26 05:47:33 EET 2015
-maven.ext.class.path=C\:\\Program Files\\NetBeans 8.0.2\\java\\maven-nblib\\netbeans-eventspy.jar
-user.dir=C\:\\Users\\Mohey\\Documents\\NetBeansProjects\\IOTA
-file.encoding=UTF-8
-localRepository=C\:\\Users\\Mohey\\.m2\\repository
-netbeans.deploy=true
-basedir=C\:\\Users\\Mohey\\Documents\\NetBeansProjects\\IOTA
