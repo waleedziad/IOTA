@@ -14,15 +14,16 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        String code = "public class Main {\n"
+        String code
+                = "#include <iostream>\n"
+                + "using namespace std;\n"
                 + "\n"
-                + "    public static void main(String[] args) {\n"
-                + "        String myData = GET_DATA(1, 1, 24);\n"
-                + "        System.out.println(myData);\n"
-                + "    }\n"
-                + "}\n";
+                + "int main() {\n"
+                + "	cout << \"TEST Ya 3am el7ag\\n\";\n"
+                + "	return 0;\n"
+                + "}";
         String user_id = "1", device_id = "1";
-        IOTACodeExecuter C = new IOTACodeExecuter(code, user_id, device_id, Language.JAVA);
+        IOTACodeExecuter C = new IOTACodeExecuter(code, user_id, device_id, Language.CPP);
         CodeResult r = C.run();
         System.out.println(r.getOut() + "\n" + r.getErr() + "\n" + r.getTimeExec());
     }

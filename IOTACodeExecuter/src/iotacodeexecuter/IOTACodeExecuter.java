@@ -168,7 +168,53 @@ public class IOTACodeExecuter {
     public CodeResult run() throws IOException, InterruptedException {
         CodeResult res = new CodeResult();
         if (L == Language.CPP) {
-            ;
+            String fileName = "Code" + user_id + "_" + device_id;
+            String cppFilePath = GLOBAL_PATH + "\\" + fileName + ".cpp";
+            String exeFilePath = GLOBAL_PATH + "\\" + fileName + ".exe";
+
+            PrintWriter writer = new PrintWriter(cppFilePath, "UTF-8");
+            writer.write(code);
+            writer.close();
+
+            List<String> command1 = new ArrayList<String>();
+            command1.add("g++");
+            command1.add(cppFilePath);
+            command1.add("-o");
+            command1.add(exeFilePath);
+
+            SystemCommandExecutor commandExecutor = new SystemCommandExecutor(command1);
+            int result = commandExecutor.executeCommand();
+
+// get the output from the command
+            StringBuilder stdout = commandExecutor.getStandardOutputFromCommand();
+            StringBuilder stderr = commandExecutor.getStandardErrorFromCommand();
+
+// print the output from the command
+            if (result != 0) {
+                res.setOut(stdout.toString());
+                res.setErr(stderr.toString());
+                return res;
+            }
+
+            List<String> command2 = new ArrayList<String>();
+            command2.add(exeFilePath);
+
+            commandExecutor = new SystemCommandExecutor(command2);
+
+            long startTime = System.currentTimeMillis();
+            result = commandExecutor.executeCommand();
+            long endTime = System.currentTimeMillis();
+
+            stdout = commandExecutor.getStandardOutputFromCommand();
+            stderr = commandExecutor.getStandardErrorFromCommand();
+
+            res.setOut(stdout.toString());
+            if (result == 0) {
+                res.setErr("success");
+            } else {
+                res.setErr(stderr.toString());
+            }
+            res.setTimeExec(endTime - startTime);
         } else if (L == Language.JAVA) {
             code = refactorCode(code);
             code = renameMainClassJava(code, user_id, device_id);
