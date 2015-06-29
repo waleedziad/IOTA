@@ -734,7 +734,16 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                                 <!-- BEGIN SITE VISITS PORTLET-->
                                 <div class="widget">
                                     <div class="widget-title">
-                                        <h4><i class="icon-signal"></i>Site Visits</h4>
+                                        <%
+                                        if (devicesInfo != null && devicesInfo.size() != 0) {
+                                    %>
+                                    <h4><i class="icon-signal"></i>Devices Statistics</h4>
+                                    <% }else{
+                                    %>
+                                    <h4><i class="icon-signal"></i>This account does not contain any device</h4>
+                                    <%
+                                        }
+                                    %>
                                         <span class="tools">
                                             <a href="javascript:;" class="icon-chevron-down"></a>
                                             <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
@@ -972,55 +981,32 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                                             <thead>
                                                 <tr>
                                                     <th><i class="icon-briefcase"></i> <span class="hidden-phone">From</span></th>
-                                                    <th><i class="icon-question-sign"></i> <span class="hidden-phone">Details</span></th>
-                                                    <th><i class="icon-bookmark"></i> <span class="hidden-phone">Amount</span></th>
+                                                    <th><i class="icon-question-sign"></i> <span class="hidden-phone">Feed Name</span></th>
+                                                    <th><i class="icon-bookmark"></i> <span class="hidden-phone">Value</span></th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            <%
+                                                        ArrayList<FeedData> tableData=(ArrayList<FeedData>)session.getAttribute("table_data");
+                                                        for(int i=0;i<tableData.size();i++){
+                                            %>
+                   
                                                 <tr>
-                                                    <td><a href="#">Loop Inc</a></td>
-                                                    <td>Hardware Upgrade</td>
+                                                    <td><a href="device.jsp?deviceid=<%=tableData.get(i).getFeed().getDevice().getDeviceId()%>"><%=tableData.get(i).getFeed().getDevice().getDeviceName()%></a></td>
+                                                    <td><%=tableData.get(i).getFeed().getFeedName()%></td>
                                                     <td>
-                                                        2160.10$ <span class="label label-success label-mini block-margin-bottom-5">Pending</span>
+                                                         <span class="label label-success label-mini block-margin-bottom-5"><%=tableData.get(i).getFeedValue()%></span>
                                                     </td>
-                                                    <td><a href="#" class="btn btn-mini hidden-phone">View</a></td>
+                                                    
                                                 </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#">UnltimateFix Ltd</a>	
-                                                    </td>
-                                                    <td>Storage Devices</td>
-                                                    <td>
-                                                        129.10$ <span class="label label-warning label-mini">Paid</span>
-                                                    </td>
-                                                    <td><a href="#" class="btn btn-mini hidden-phone">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#">Tripix Ltd</a>	
-                                                    </td>
-                                                    <td>Company Anual Trip</td>
-                                                    <td>
-                                                        2400.50$ <span class="label label-success label-mini">Pending</span>
-                                                    </td>
-                                                    <td><a href="#" class="btn btn-mini hidden-phone">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <a href="#">PrinMe Ltd</a>
-                                                    </td>
-                                                    <td>Printer recharge</td>
-                                                    <td>
-                                                        290.50$ <span class="label label-danger label-mini">Overdue</span>	
-                                                    </td>
-                                                    <td><a href="#" class="btn btn-mini hidden-phone">View</a></td>
-                                                </tr>
+                                                <%}%>
+                                                
                                             </tbody>
                                         </table>
                                         <div class="space7"></div>
                                         <div class="clearfix">
-                                            <a href="#" class="btn btn-mini pull-right">All Invoices</a>	
+                                            	
                                         </div>
                                     </div>
                                 </div>

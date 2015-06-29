@@ -9,7 +9,9 @@ import javax.persistence.*;
 public class FeedData implements Serializable {
 
     @Id
-    @Column(name = "feeddata_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "feeddata_id",unique=true, nullable = false)
     private Long feedDataId;
 
     @Column(name = "feed_value")
@@ -74,6 +76,10 @@ public class FeedData implements Serializable {
         this.feedId = feedId;
     }
 
+    public Feed getFeed(){
+        return feed;
+    }
+    
     @Override
     public String toString() {
         return "Domain.FeedData[ feedDataId=" + feedDataId + ",feedValue=" + feedValue + ",feedDate=" + feedDate + ",feedId=" + feedId + " ]";

@@ -70,6 +70,10 @@ public class Feed implements Serializable {
         this.deviceId = deviceId;
     }
     
+    public Device getDevice(){
+        return device;
+    }
+    
     @Override
     public String toString() {
         return "Domain.Feed[ id=" + feedId +  ",feedName="+feedName+",deviceId="+deviceId+" ]";

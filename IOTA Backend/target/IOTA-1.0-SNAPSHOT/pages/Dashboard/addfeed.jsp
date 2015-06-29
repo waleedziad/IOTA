@@ -57,6 +57,7 @@
         <div id="login">
             <!-- BEGIN LOGIN FORM -->
             <form id="loginform" class="form-vertical no-padding no-margin" action="addnewfeed.htm" method="POST" onsubmit="return checkForm(this);">
+                <input type="hidden" name="user_id" value="<%=(Long)session.getAttribute("user_id")%>"/>
                 <p class="center">Add Device</p>
                 <div class="control-group">
                     <div class="controls">

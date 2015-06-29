@@ -1,7 +1,12 @@
 package com.mycompany.Controller;
 
 import com.mycompany.DAO.FeedDataDao;
+import com.mycompany.Domain.FeedData;
 import com.mycompany.Domain.User;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,21 +23,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 @ContextConfiguration({"classpath:configuration/applicationContext.xml"})
 @Transactional
 public class FeedDataController {
+
     @Autowired
-    FeedDataDao userDao ;
-    
-    
-    @RequestMapping(value = "newFeedData.htm",method = RequestMethod.GET)
-    public void AcceptInput (
-            @RequestParam("firstName") String firstName, 
-            @RequestParam("lastName") String lastName,
-            @RequestParam("email") String email,
-            @RequestParam("password") String password,
-            @RequestParam("registrationDate") String registrationDate,
-            HttpServletResponse response) throws Exception
-    {
-        //User user=new User(firstName,lastName,email,password,registrationDate);
-        //userDao.insertUser(user);
-        response.getWriter().write("User Added");
+    FeedDataDao feedDataDao;
+
+    @RequestMapping(value = "newFeedData.htm", method = RequestMethod.GET)
+    public void AcceptInput(
+            @RequestParam("feedValue") String feedValue,
+            @RequestParam("feedId") Long feedId,
+            HttpServletResponse response) throws Exception {
+        
+        Calendar cal = Calendar.getInstance();
+        Date feedDate=cal.getTime();
+        FeedData feedData = new FeedData(feedValue, feedDate, feedId);
+        feedDataDao.insert(feedData);
+        response.getWriter().write("Feed Added");
     }
 }

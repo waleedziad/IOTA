@@ -33,4 +33,9 @@ public class FeedDataDao {
         return feedData ;
     }
     
+    public List<FeedData> getAllTableFeedData()
+    {
+        List<FeedData> feedData = entityManager.createQuery("from FeedData ORDER BY feedDate DESC").setMaxResults(10).getResultList();
+        return feedData ;
+    }    
 }

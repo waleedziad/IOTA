@@ -118,18 +118,22 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                     }
 
             <%
-                Device currentDevice=null;
+                DeviceInfo currentDeviceInfo = null;
                 ArrayList<DeviceInfo> devicesInfo = (ArrayList<DeviceInfo>) session.getAttribute("devicesInfo");
-                
+
                 for (int i = 0; i < devicesInfo.size(); i++) {
-                    if(devicesInfo.get(i).device.getDeviceId()!=deviceId)
+                    if (devicesInfo.get(i).device.getDeviceId() != deviceId) {
                         continue;
-                    currentDevice=devicesInfo.get(i).device;
-                    out.println("if(true){");
-                    DeviceInfo deviceInfo = devicesInfo.get(i);
-                    for (int j = 0; j < deviceInfo.feeds.size(); j++) {
-                        ArrayList<FeedData> feedData = (ArrayList<FeedData>) deviceInfo.feeds.get(j).feedData;
-                        out.println("var pageviews" + j + " = [");
+                    }
+                    currentDeviceInfo = devicesInfo.get(i);
+                }
+                if (currentDeviceInfo != null) {
+                    for (int i = 0; i < currentDeviceInfo.feeds.size(); i++) {
+
+                        out.println("if(index==" + i + "){");
+
+                        ArrayList<FeedData> feedData = (ArrayList<FeedData>) currentDeviceInfo.feeds.get(i).feedData;
+                        out.println("var pageviews = [");
 
                         for (int k = feedData.size() - 1, x = 0; k >= 0; k--, x++) {
                             out.print("[" + x + ", " + feedData.get(k).getFeedValue() + "]");
@@ -138,7 +142,7 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                             }
                         }
                         out.println("];");
-                    }
+
 
             %>
 
@@ -147,67 +151,60 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
 
 
                     var plot = $.plot($("#site_statistics"), [
-            <%            for (int j = 0; j < deviceInfo.feeds.size(); j++) {
-            %>
-                    {
-                    data: pageviews<%=j%>,
-                            label: "<%=deviceInfo.feeds.get(j).feed.getFeedName()%>"
-                    }
-            <%  if (deviceInfo.feeds.size() - j != 1) {
-                        out.println(",");
-                    }
-                }
+                        {
+                            data: pageviews,
+                            label: "<%=currentDeviceInfo.feeds.get(i).feed.getFeedName()%>"
+                        }
 
-            %>
                     ], {
-                    series: {
-                    lines: {
-                    show: true,
-                            lineWidth: 2,
-                            fill: true,
-                            fillColor: {
-                            colors: [{
-                            opacity: 0.05
-                            }, {
-                            opacity: 0.01
-                            }]
-                            }
-                    },
+                        series: {
+                            lines: {
+                                show: true,
+                                lineWidth: 2,
+                                fill: true,
+                                fillColor: {
+                                    colors: [{
+                                            opacity: 0.05
+                                        }, {
+                                            opacity: 0.01
+                                        }]
+                                }
+                            },
                             points: {
-                            show: true
+                                show: true
                             },
                             shadowSize: 2
-                    },
-                            grid: {
+                        },
+                        grid: {
                             hoverable: true,
-                                    clickable: true,
-                                    tickColor: "#eee",
-                                    borderWidth: 0
-                            },
-                            colors: ["#d12610", "#37b7f3", "#52e136"],
-                            xaxis: {
+                            clickable: true,
+                            tickColor: "#eee",
+                            borderWidth: 0
+                        },
+                        colors: ["#d12610", "#37b7f3", "#52e136"],
+                        xaxis: {
                             ticks: 11,
-                                    tickDecimals: 0
-                            },
-                            yaxis: {
+                            tickDecimals: 0
+                        },
+                        yaxis: {
                             ticks: 11,
-                                    tickDecimals: 0
-                            }
+                            tickDecimals: 0
+                        }
                     });
-                            function showTooltip(x, y, contents) {
-                                $('<div id="tooltip">' + contents + '</div>').css({
-                                    position: 'absolute',
-                                    display: 'none',
-                                    top: y + 5,
-                                    left: x + 15,
-                                    border: '1px solid #333',
-                                    padding: '4px',
-                                    color: '#fff',
-                                    'border-radius': '3px',
-                                    'background-color': '#333',
-                                    opacity: 0.80
-                                }).appendTo("body").fadeIn(200);
-                            }
+                    function showTooltip(x, y, contents) {
+                        $('<div id="tooltip">' + contents + '</div>').css({
+                            position: 'absolute',
+                            display: 'none',
+                            top: y + 5,
+                            left: x + 15,
+                            border: '1px solid #333',
+                            padding: '4px',
+                            color: '#fff',
+                            'border-radius': '3px',
+                            'background-color': '#333',
+                            opacity: 0.80
+                        }).appendTo("body").fadeIn(200);
+                    }
 
                     var previousPoint = null;
                     $("#site_statistics").bind("plothover", function (event, pos, item) {
@@ -278,6 +275,7 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                     update();
 
             <%                out.println("}");
+                    }
                 }
             %>
                 }
@@ -285,7 +283,8 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
 
                 ////////////////////////
 
-                handleDashboardCharts(<%=deviceId%>);
+
+                handleDashboardCharts(0);
             });
         </script>
         <!-- END JAVASCRIPTS -->
@@ -508,7 +507,7 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                                     <li><a href="#"><i class="icon-tasks"></i> Tasks</a></li>
                                     <li><a href="#"><i class="icon-ok"></i> Calendar</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                                    <li><a href="login.jsp"><i class="icon-key"></i> Log Out</a></li>
                                 </ul>
                             </li>
                             <!-- END USER LOGIN DROPDOWN -->
@@ -665,7 +664,16 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                             <br>
                             <div class="widget">
                                 <div class="widget-title">
-                                    <h4><i class="icon-signal"></i>Site Visits</h4>
+                                    <%
+                                        if (currentDeviceInfo != null && currentDeviceInfo.feeds.size() != 0) {
+                                    %>
+                                    <h4><i class="icon-signal"></i>Feeds Statistics</h4>
+                                    <% }else{
+                                    %>
+                                    <h4><i class="icon-signal"></i>This device does not contain any feed</h4>
+                                    <%
+                                        }
+                                    %>
                                     <span class="tools">
                                         <a href="javascript:;" class="icon-chevron-down"></a>
                                         <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
@@ -680,10 +688,21 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                                     <div id="site_statistics_content" class="hide">
                                         <div class="btn-toolbar no-top-space clearfix">
                                             <div class="btn-group" data-toggle="buttons-radio">
-                                                <button class="btn btn-mini"><%=currentDevice.getDeviceName()%>
+                                                <%
+                                                    if (currentDeviceInfo != null && currentDeviceInfo.feeds.size() != 0) {
+                                                        for (int i = 0; i < currentDeviceInfo.feeds.size(); i++) {
+                                                %>
+                                                <button class="btn btn-mini" onclick="handleDashboardCharts(<%=i%>)"><%=currentDeviceInfo.feeds.get(i).feed.getFeedName()%></button>
+                                                <%}
+                                                } else if (currentDeviceInfo != null) {
+                                                %>
+                                                <button class="btn btn-mini" >This device does not contain any feeds</button>
+                                                <%
+                                                    }
+                                                %>
                                             </div>
                                             <div class="btn-group pull-right" data-toggle="buttons-radio">
-                                                		
+
                                             </div>
                                         </div>
                                         <div id="site_statistics" class="chart"></div>
