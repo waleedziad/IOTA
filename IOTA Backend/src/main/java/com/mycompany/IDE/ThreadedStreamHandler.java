@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package iotacodeexecuter;
+package com.mycompany.IDE;
 
 /**
  *
@@ -85,7 +85,7 @@ class ThreadedStreamHandler extends Thread {
     }
 
     public void run() {
-    // on mac os x 10.5.x, when i run a 'sudo' command, i need to write
+        // on mac os x 10.5.x, when i run a 'sudo' command, i need to write
         // the admin password out immediately; that's why this code is
         // here.
         if (sudoIsRequested) {

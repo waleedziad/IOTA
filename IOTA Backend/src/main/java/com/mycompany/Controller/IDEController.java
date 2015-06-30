@@ -35,16 +35,19 @@ public class IDEController {
             @RequestParam("deviceID") String deviceID,
             @RequestParam("langCode") String langCode,
             HttpServletResponse response) throws Exception {
-        code = "public class Main {\n"
-                + "public static void main(String[] args) {\n"
-                + "System.out.println(\"TEST TEST\");\n"
-                + "}\n"
-                + "}\n";
+        code
+                = "#include <iostream>\n"
+                + "using namespace std;\n"
+                + "\n"
+                + "int main() {\n"
+                + "	cout << \"TEST Ya 3am el7ag\\n\";\n"
+                + "	return 0;\n"
+                + "}";
         Language lang;
 //        if (langCode.equals("1")) {
 //            lang = Language.CPP;
 //        } else {
-            lang = Language.JAVA;
+        lang = Language.CPP;
 //        }
         IOTACodeExecuter IDE = new IOTACodeExecuter(code, userID, deviceID, lang);
         CodeResult result = IDE.run();

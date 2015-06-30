@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package iotacodeexecuter;
+package com.mycompany.IDE;
 
 /**
  *
  * @author Eagle
  */
-
 public enum Language {
+
     CPP, JAVA
 }
