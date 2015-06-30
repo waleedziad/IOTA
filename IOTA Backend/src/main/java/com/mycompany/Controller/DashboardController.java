@@ -31,7 +31,7 @@ import org.springframework.web.servlet.ModelAndView;
 @TransactionConfiguration(defaultRollback = false)
 @ContextConfiguration({"classpath:configuration/applicationContext.xml"})
 @Transactional
-@SessionAttributes({"user_id", "devices", "points", "devicesInfo", "table_data"})
+@SessionAttributes({"user_id", "devices", "points", "devicesInfo", "table_data","device_table_data","email"})
 public class DashboardController {
 
     @Autowired
@@ -80,6 +80,7 @@ public class DashboardController {
                 if (users.get(i).getPassword().equals(password)) {
                     userId = users.get(i).getUserId();
                     modelAndView.addObject("user_id", userId);
+                    modelAndView.addObject("email", users.get(i).getEmail());
                     loginSuccess = true;
                 }
                 break;
@@ -108,7 +109,7 @@ public class DashboardController {
 
                 deviceInfo.add(info);
             }
-            ArrayList<FeedData> tableData = (ArrayList<FeedData>) feedDataDao.getAllTableFeedData();
+            ArrayList<FeedData> tableData = (ArrayList<FeedData>) feedDataDao.getAllDashboardTableFeedData();
             modelAndView.addObject("table_data", tableData);
             modelAndView.addObject("devicesInfo", deviceInfo);
             modelAndView.addObject("devices", devices);
@@ -181,7 +182,7 @@ public class DashboardController {
 
         modelAndView.addObject("devicesInfo", deviceInfo);
 
-        ArrayList<FeedData> tableData = (ArrayList<FeedData>) feedDataDao.getAllTableFeedData();
+        ArrayList<FeedData> tableData = (ArrayList<FeedData>) feedDataDao.getAllDashboardTableFeedData();
         modelAndView.addObject("table_data", tableData);
         modelAndView.addObject("devices", devices);
         modelAndView.addObject("points", deviceDao.getAllGraphData(userId));
@@ -242,7 +243,7 @@ public class DashboardController {
 
         modelAndView.addObject("devicesInfo", deviceInfo);
 
-        ArrayList<FeedData> tableData = (ArrayList<FeedData>) feedDataDao.getAllTableFeedData();
+        ArrayList<FeedData> tableData = (ArrayList<FeedData>) feedDataDao.getAllDashboardTableFeedData();
         modelAndView.addObject("table_data", tableData);
         modelAndView.addObject("devices", devices);
         modelAndView.setViewName("index.jsp");
@@ -250,47 +251,17 @@ public class DashboardController {
         return modelAndView;
     }
     
-//    @RequestMapping(value = "viewDevice.htm", method = RequestMethod.POST)
-//    public ModelAndView viewDevice(
-//            @RequestParam("id") String deviceId,
-//            HttpServletResponse response) throws Exception {
-//        
-//        Feed feed = new Feed();
-//        feed.setFeedName(feedName);
-//        feed.setDeviceId(deviceId);
-//        feedDao.insert(feed);
-//
-//        ModelAndView modelAndView = new ModelAndView();
-//
-//        ArrayList<DeviceInfo> deviceInfo = new ArrayList<DeviceInfo>();
-//        ArrayList<Device> devices = (ArrayList<Device>) deviceDao.getAllUserDevices(userId);
-//        for (int i = 0; i < devices.size(); i++) {
-//            DeviceInfo info = new DeviceInfo();
-//            info.device = devices.get(i);
-//            ArrayList<Feed> feeds = (ArrayList<Feed>) feedDao.getAllDeviceFeeds(info.device.getDeviceId());
-//            for (int j = 0; j < feeds.size(); j++) {
-//                FeedInfo feedInfo = new FeedInfo();
-//                feedInfo.feed = feeds.get(j);
-//                feedInfo.feedData = (ArrayList<FeedData>) feedDataDao.getAllFeedData(feedInfo.feed.getFeedId());
-//                if (feedInfo.feedData.size() == 0) {
-//                    FeedData data = new FeedData();
-//                    data.setFeedValue(0 + "");
-//                    feedInfo.feedData.add(data);
-//                }
-//
-//                info.feeds.add(feedInfo);
-//            }
-//
-//            deviceInfo.add(info);
-//        }
-//
-//        modelAndView.addObject("devicesInfo", deviceInfo);
-//
-//        ArrayList<FeedData> tableData = (ArrayList<FeedData>) feedDataDao.getAllTableFeedData();
-//        modelAndView.addObject("table_data", tableData);
-//        modelAndView.addObject("devices", devices);
-//        modelAndView.setViewName("index.jsp");
-//
-//        return modelAndView;
-//    }
+    @RequestMapping(value = "viewDevice.htm", method = RequestMethod.GET)
+    public ModelAndView viewDevice(
+            @RequestParam("deviceid") Long deviceId,
+            HttpServletResponse response) throws Exception {
+       
+        ModelAndView modelAndView = new ModelAndView();
+       
+        ArrayList<FeedData> tableData = (ArrayList<FeedData>) feedDataDao.getAllTableFeedData(deviceId);
+        modelAndView.addObject("device_table_data", tableData);
+        modelAndView.setViewName("device.jsp?id="+deviceId);
+
+        return modelAndView;
+    }
 }

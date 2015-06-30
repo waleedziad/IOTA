@@ -29,7 +29,7 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
     <!-- BEGIN HEAD -->
     <head>
         <meta charset="utf-8" />
-        <title>IOTA Dashboard</title>
+        <title>IOTA Device Page</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content="" name="description" />
         <meta content="" name="author" />
@@ -371,128 +371,11 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                         <!-- BEGIN TOP NAVIGATION MENU -->					
                         <ul class="nav pull-right" id="top_menu">
                             <!-- BEGIN NOTIFICATION DROPDOWN -->	
-                            <li class="dropdown" id="header_notification_bar">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="icon-warning-sign"></i>
-                                    <span class="label label-important">15</span>
-                                </a>
-                                <ul class="dropdown-menu extended notification">
-                                    <li>
-                                        <p>You have 14 new notifications</p>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="label label-success"><i class="icon-plus"></i></span>
-                                            New user registered. 
-                                            <span class="small italic">Just now</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="label label-important"><i class="icon-bolt"></i></span>
-                                            Server #12 overloaded. 
-                                            <span class="small italic">15 mins</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="label label-warning"><i class="icon-bell"></i></span>
-                                            Server #2 not respoding.
-                                            <span class="small italic">22 mins</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="label label-info"><i class="icon-bullhorn"></i></span>
-                                            Application error.
-                                            <span class="small italic">40 mins</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="label label-important"><i class="icon-bolt"></i></span>
-                                            Database overloaded 68%. 
-                                            <span class="small italic">2 hrs</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="label label-important"><i class="icon-bolt"></i></span>
-                                            2 user IP addresses blacklisted.
-                                            <span class="small italic">5 hrs</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">See all notifications</a>
-                                    </li>
-                                </ul>
-                            </li>
                             <!-- END NOTIFICATION DROPDOWN -->
                             <!-- BEGIN INBOX DROPDOWN -->
-                            <li class="dropdown" id="header_inbox_bar">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="icon-envelope-alt"></i>
-                                    <span class="label label-success">5</span>
-                                </a>
-                                <ul class="dropdown-menu extended inbox">
-                                    <li>
-                                        <p>You have 12 new messages</p>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo"><img src="./assets/img/avatar-mini.png" alt="avatar" /></span>
-                                            <span class="subject">
-                                                <span class="from">Lisa Wong</span>
-                                                <span class="time">Just Now</span>
-                                            </span>
-                                            <span class="message">
-                                                Vivamus sed auctor nibh congue nibh.
-                                            </span>  
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo"><img src="./assets/img/avatar-mini.png" alt="avatar" /></span>
-                                            <span class="subject">
-                                                <span class="from">Alina Fionovna</span>
-                                                <span class="time">16 mins</span>
-                                            </span>
-                                            <span class="message">
-                                                Vivamus sed auctor nibh congue.
-                                            </span>  
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo"><img src="./assets/img/avatar-mini.png" alt="avatar" /></span>
-                                            <span class="subject">
-                                                <span class="from">Mila Rock</span>
-                                                <span class="time">2 hrs</span>
-                                            </span>
-                                            <span class="message">
-                                                Vivamus sed auctor nibh congue.
-                                            </span>  
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">See all messages</a>
-                                    </li>
-                                </ul>
-                            </li>
                             <!-- END INBOX DROPDOWN -->
                             <li class="divider-vertical hidden-phone hidden-tablet"></li>
                             <!-- BEGIN USER LOGIN DROPDOWN -->
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="icon-wrench"></i>
-                                    <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="icon-cogs"></i> System Settings</a></li>
-                                    <li><a href="#"><i class="icon-pushpin"></i> Shortcuts</a></li>
-                                    <li><a href="#"><i class="icon-trash"></i> Trash</a></li>
-                                </ul>
-                            </li>
                             <!-- END USER LOGIN DROPDOWN -->
                             <li class="divider-vertical hidden-phone hidden-tablet"></li>
                             <!-- BEGIN USER LOGIN DROPDOWN -->
@@ -502,10 +385,7 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                                     <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="icon-user"></i> Mark King</a></li>
-                                    <li><a href="#"><i class="icon-envelope-alt"></i> Inbox</a></li>
-                                    <li><a href="#"><i class="icon-tasks"></i> Tasks</a></li>
-                                    <li><a href="#"><i class="icon-ok"></i> Calendar</a></li>
+                                    <li><a href="#"><i class="icon-user"></i> <%=(String)session.getAttribute("email")%></a></li>
                                     <li class="divider"></li>
                                     <li><a href="login.jsp"><i class="icon-key"></i> Log Out</a></li>
                                 </ul>
@@ -637,9 +517,7 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                                 </li>
                                 <li><a href="#">Dashboard</a></li>
                                 <li class="pull-right dashboard-report-li">
-                                    <div id="dashboard-report-range" class="dashboard-report-range-container no-text-shadow tooltips" data-placement="top" data-original-title="Change dashboard date range"><i class="icon-calendar icon-large"></i><span></span>
-                                        <b class="caret"></b>
-                                    </div>
+                                    
                                 </li>
                             </ul>
                             <!-- END PAGE TITLE & BREADCRUMB-->
@@ -652,11 +530,11 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                         <div class="row-fluid stats-overview-cont"></div>
                         <!-- END OVERVIEW STATISTIC BARS-->
                         <div class="row-fluid">
-                            <div class="span6"> <a href="editor.jsp">
+                            <div class="span6"> <a href="editor.jsp?deviceId=<%=deviceId%>">
                                     <button class="btn btn-block btn-inverse" type="button">Device IDE</button>
                                 </a>
                             </div>
-                            <div class="span6"> <a href="servereditor.jsp">
+                            <div class="span6"> <a href="servereditor.jsp?deviceId=<%=deviceId%>">
                                     <button class="btn btn-block btn-inverse" type="button">Server IDE</button>
                                 </a>
                             </div>
@@ -676,7 +554,6 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                                     %>
                                     <span class="tools">
                                         <a href="javascript:;" class="icon-chevron-down"></a>
-                                        <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
                                         <a href="javascript:;" class="icon-refresh"></a>		
                                         <a href="javascript:;" class="icon-remove"></a>
                                     </span>							
@@ -722,7 +599,6 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                                     <h4><i class="icon-print"></i>Device Data</h4>
                                     <span class="tools">
                                         <a href="javascript:;" class="icon-chevron-down"></a>
-                                        <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
                                         <a href="javascript:;" class="icon-refresh"></a>		
                                         <a href="javascript:;" class="icon-remove"></a>
                                     </span>							
@@ -732,55 +608,31 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                                         <thead>
                                             <tr>
                                                 <th><i class="icon-briefcase"></i> <span class="hidden-phone">From</span></th>
-                                                <th><i class="icon-question-sign"></i> <span class="hidden-phone">Details</span></th>
-                                                <th><i class="icon-bookmark"></i> <span class="hidden-phone">Amount</span></th>
+                                                <th><i class="icon-question-sign"></i> <span class="hidden-phone">Feed Name</span></th>
+                                                <th><i class="icon-bookmark"></i> <span class="hidden-phone">Feed Value</span></th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td><a href="#">Loop Inc</a></td>
-                                                <td>Hardware Upgrade</td>
-                                                <td>
-                                                    2160.10$ <span class="label label-success label-mini block-margin-bottom-5">Pending</span>
-                                                </td>
-                                                <td><a href="#" class="btn btn-mini hidden-phone">View</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="#">UnltimateFix Ltd</a>	
-                                                </td>
-                                                <td>Storage Devices</td>
-                                                <td>
-                                                    129.10$ <span class="label label-warning label-mini">Paid</span>
-                                                </td>
-                                                <td><a href="#" class="btn btn-mini hidden-phone">View</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="#">Tripix Ltd</a>	
-                                                </td>
-                                                <td>Company Anual Trip</td>
-                                                <td>
-                                                    2400.50$ <span class="label label-success label-mini">Pending</span>
-                                                </td>
-                                                <td><a href="#" class="btn btn-mini hidden-phone">View</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="#">PrinMe Ltd</a>
-                                                </td>
-                                                <td>Printer recharge</td>
-                                                <td>
-                                                    290.50$ <span class="label label-danger label-mini">Overdue</span>	
-                                                </td>
-                                                <td><a href="#" class="btn btn-mini hidden-phone">View</a></td>
-                                            </tr>
+                                            <%
+                                                        ArrayList<FeedData> tableData=(ArrayList<FeedData>)session.getAttribute("device_table_data");
+                                                        for(int i=0;i<tableData.size();i++){
+                                            %>
+                   
+                                                <tr>
+                                                    <td><a href="device.jsp?deviceid=<%=tableData.get(i).getFeed().getDevice().getDeviceId()%>"><%=tableData.get(i).getFeed().getDevice().getDeviceName()%></a></td>
+                                                    <td><%=tableData.get(i).getFeed().getFeedName()%></td>
+                                                    <td>
+                                                         <span class="label label-success label-mini block-margin-bottom-5"><%=tableData.get(i).getFeedValue()%></span>
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <%}%>
                                         </tbody>
                                     </table>
                                     <div class="space7"></div>
                                     <div class="clearfix">
-                                        <a href="#" class="btn btn-mini pull-right">All Invoices</a>	
+                                       	
                                     </div>
                                 </div>
                             </div>

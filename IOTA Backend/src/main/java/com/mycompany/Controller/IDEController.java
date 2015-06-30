@@ -5,9 +5,9 @@
 package com.mycompany.Controller;
 
 import com.mycompany.Domain.User;
-import com.mycompany.IDE.CodeResult;
-import com.mycompany.IDE.IOTACodeExecuter;
-import com.mycompany.IDE.Language;
+import iotacodeexecuter.CodeResult;
+import iotacodeexecuter.IOTACodeExecuter;
+import iotacodeexecuter.Language;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.test.context.ContextConfiguration;
@@ -16,45 +16,96 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
  * @author sony
  */
 @Controller
-@RequestMapping("/IDE")
+@RequestMapping("/pages/Dashboard")
 @TransactionConfiguration(defaultRollback = false)
 @ContextConfiguration({"classpath:configuration/applicationContext.xml"})
 @Transactional
+@SessionAttributes({"user_id", "devices", "points", "devicesInfo", "table_data","device_table_data","email","codeResult"})
 public class IDEController {
 
-    @RequestMapping(value = "Run.htm", method = RequestMethod.GET)
-    public void AcceptInput(
+    @RequestMapping(value = "deviceIDE.htm", method = RequestMethod.POST)
+    public ModelAndView deviceIDE(
             @RequestParam("code") String code,
             @RequestParam("userID") String userID,
             @RequestParam("deviceID") String deviceID,
             @RequestParam("langCode") String langCode,
+            @RequestParam("case") String Case,
             HttpServletResponse response) throws Exception {
-        code
-                = "#include <iostream>\n"
-                + "using namespace std;\n"
-                + "\n"
-                + "int main() {\n"
-                + "	cout << \"TEST Ya 3am el7ag\\n\";\n"
-                + "	return 0;\n"
-                + "}";
+        ModelAndView modelAndView = new ModelAndView();
+        String Result="Code Execution Result";
+        if(Case.equalsIgnoreCase("Run")){
+        code = "public class Main {\n"
+                + "public static void main(String[] args) {\n"
+                + "System.out.println(\"TEST TEST\");\n"
+                + "}\n"
+                + "}\n";
         Language lang;
-//        if (langCode.equals("1")) {
+//        if (langCode.equals("2")) {
 //            lang = Language.CPP;
 //        } else {
-        lang = Language.CPP;
+            lang = Language.JAVA;
 //        }
-        IOTACodeExecuter IDE = new IOTACodeExecuter(code, userID, deviceID, lang);
+           
+        /*IOTACodeExecuter IDE = new IOTACodeExecuter(code, userID, deviceID, lang);
         CodeResult result = IDE.run();
         System.out.println("Run");
         System.out.println(userID);
         System.out.println(code);
         System.out.println(result.toString());
-        response.getWriter().write(result.toString());
+        response.getWriter().write(result.toString());*/
+        }
+        else if(Case.equalsIgnoreCase("Deplay")){
+            
+        }
+        modelAndView.addObject("codeResult",Result);
+        modelAndView.setViewName("editor.jsp?deviceId="+deviceID);
+         return modelAndView;
+    }
+    
+       @RequestMapping(value = "serverIDE.htm", method = RequestMethod.POST)
+    public ModelAndView serverIDE(
+            @RequestParam("code") String code,
+            @RequestParam("userID") String userID,
+            @RequestParam("deviceID") String deviceID,
+            @RequestParam("langCode") String langCode,
+            @RequestParam("case") String Case,
+            HttpServletResponse response) throws Exception {
+        ModelAndView modelAndView = new ModelAndView();
+        String Result="Code Execution Result";
+        if(Case.equalsIgnoreCase("Run")){
+        code = "public class Main {\n"
+                + "public static void main(String[] args) {\n"
+                + "System.out.println(\"TEST TEST\");\n"
+                + "}\n"
+                + "}\n";
+        Language lang;
+//        if (langCode.equals("2")) {
+//            lang = Language.CPP;
+//        } else {
+            lang = Language.JAVA;
+//        }
+           
+        /*IOTACodeExecuter IDE = new IOTACodeExecuter(code, userID, deviceID, lang);
+        CodeResult result = IDE.run();
+        System.out.println("Run");
+        System.out.println(userID);
+        System.out.println(code);
+        System.out.println(result.toString());
+        response.getWriter().write(result.toString());*/
+        }
+        else if(Case.equalsIgnoreCase("Deplay")){
+            
+        }
+        modelAndView.addObject("codeResult",Result);
+        modelAndView.setViewName("servereditor.jsp?deviceId="+deviceID);
+         return modelAndView;
     }
 }

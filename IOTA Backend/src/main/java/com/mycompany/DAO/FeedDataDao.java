@@ -1,6 +1,7 @@
 package com.mycompany.DAO;
 
 import com.mycompany.Domain.FeedData;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -33,9 +34,21 @@ public class FeedDataDao {
         return feedData ;
     }
     
-    public List<FeedData> getAllTableFeedData()
+    public List<FeedData> getAllDashboardTableFeedData()
     {
         List<FeedData> feedData = entityManager.createQuery("from FeedData ORDER BY feedDate DESC").setMaxResults(10).getResultList();
         return feedData ;
-    }    
+    }
+    
+    public List<FeedData> getAllTableFeedData(Long deviceId)
+    {
+        List<FeedData> feedData = entityManager.createQuery("from FeedData ORDER BY feedDate DESC").getResultList();
+        for(int i=feedData.size()-1;i>=0;i--)
+            if(feedData.get(i).getFeed().getDevice().getDeviceId()!=deviceId)
+                feedData.remove(i);
+        List<FeedData> feedData2=new ArrayList<FeedData>();
+        for(int i=0;i<feedData.size() && i<10;i++)
+            feedData2.add(feedData.get(i));
+        return feedData2 ;
+    }
 }

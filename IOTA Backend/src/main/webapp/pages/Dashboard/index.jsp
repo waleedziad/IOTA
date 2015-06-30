@@ -394,129 +394,8 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                         <!-- BEGIN TOP NAVIGATION MENU -->					
                         <ul class="nav pull-right" id="top_menu">
                             <!-- BEGIN NOTIFICATION DROPDOWN -->	
-                            <li class="dropdown" id="header_notification_bar">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="icon-warning-sign"></i>
-                                    <span class="label label-important">15</span>
-                                </a>
-                                <ul class="dropdown-menu extended notification">
-                                    <li>
-                                        <p>You have 14 new notifications</p>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="label label-success"><i class="icon-plus"></i></span>
-                                            New user registered. 
-                                            <span class="small italic">Just now</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="label label-important"><i class="icon-bolt"></i></span>
-                                            Server #12 overloaded. 
-                                            <span class="small italic">15 mins</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="label label-warning"><i class="icon-bell"></i></span>
-                                            Server #2 not respoding.
-                                            <span class="small italic">22 mins</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="label label-info"><i class="icon-bullhorn"></i></span>
-                                            Application error.
-                                            <span class="small italic">40 mins</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="label label-important"><i class="icon-bolt"></i></span>
-                                            Database overloaded 68%. 
-                                            <span class="small italic">2 hrs</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="label label-important"><i class="icon-bolt"></i></span>
-                                            2 user IP addresses blacklisted.
-                                            <span class="small italic">5 hrs</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">See all notifications</a>
-                                    </li>
-                                </ul>
-                            </li>
                             <!-- END NOTIFICATION DROPDOWN -->
-                            <!-- BEGIN INBOX DROPDOWN -->
-                            <li class="dropdown" id="header_inbox_bar">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="icon-envelope-alt"></i>
-                                    <span class="label label-success">5</span>
-                                </a>
-                                <ul class="dropdown-menu extended inbox">
-                                    <li>
-                                        <p>You have 12 new messages</p>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo"><img src="./assets/img/avatar-mini.png" alt="avatar" /></span>
-                                            <span class="subject">
-                                                <span class="from">Lisa Wong</span>
-                                                <span class="time">Just Now</span>
-                                            </span>
-                                            <span class="message">
-                                                Vivamus sed auctor nibh congue nibh.
-                                            </span>  
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo"><img src="./assets/img/avatar-mini.png" alt="avatar" /></span>
-                                            <span class="subject">
-                                                <span class="from">Alina Fionovna</span>
-                                                <span class="time">16 mins</span>
-                                            </span>
-                                            <span class="message">
-                                                Vivamus sed auctor nibh congue.
-                                            </span>  
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo"><img src="./assets/img/avatar-mini.png" alt="avatar" /></span>
-                                            <span class="subject">
-                                                <span class="from">Mila Rock</span>
-                                                <span class="time">2 hrs</span>
-                                            </span>
-                                            <span class="message">
-                                                Vivamus sed auctor nibh congue.
-                                            </span>  
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">See all messages</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- END INBOX DROPDOWN -->
                             <li class="divider-vertical hidden-phone hidden-tablet"></li>
-                            <!-- BEGIN USER LOGIN DROPDOWN -->
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="icon-wrench"></i>
-                                    <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="icon-cogs"></i> System Settings</a></li>
-                                    <li><a href="#"><i class="icon-pushpin"></i> Shortcuts</a></li>
-                                    <li><a href="#"><i class="icon-trash"></i> Trash</a></li>
-                                </ul>
-                            </li>
-                            <!-- END USER LOGIN DROPDOWN -->
                             <li class="divider-vertical hidden-phone hidden-tablet"></li>
                             <!-- BEGIN USER LOGIN DROPDOWN -->
                             <li class="dropdown">
@@ -525,10 +404,7 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                                     <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="icon-user"></i> Mark King</a></li>
-                                    <li><a href="#"><i class="icon-envelope-alt"></i> Inbox</a></li>
-                                    <li><a href="#"><i class="icon-tasks"></i> Tasks</a></li>
-                                    <li><a href="#"><i class="icon-ok"></i> Calendar</a></li>
+                                    <li><a href="#"><i class="icon-user"></i> <%=(String)session.getAttribute("email")%></a></li>
                                     <li class="divider"></li>
                                     <li><a href="login.jsp"><i class="icon-key"></i> Log Out</a></li>
                                 </ul>
@@ -669,9 +545,7 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                                 </li>
                                 <li><a href="#">Dashboard</a></li>
                                 <li class="pull-right dashboard-report-li">
-                                    <div id="dashboard-report-range" class="dashboard-report-range-container no-text-shadow tooltips" data-placement="top" data-original-title="Change dashboard date range"><i class="icon-calendar icon-large"></i><span></span>
-                                        <b class="caret"></b>
-                                    </div>
+                                    
                                 </li>
                             </ul>
                             <!-- END PAGE TITLE & BREADCRUMB-->
@@ -687,7 +561,7 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                                 ArrayList<Device> devices = (ArrayList<Device>) session.getAttribute("devices");
                                 for (int i = 0; i < devices.size(); i++) {
                             %>
-                            <a href="device.jsp?deviceid=<%=devices.get(i).getDeviceId()%>">
+                            <a href="viewDevice.htm?deviceid=<%=devices.get(i).getDeviceId()%>">
                                 <div class="span2 responsive" style="margin-right: 10px;" data-tablet="span4" data-desktop="span2">
                                     <div class="stats-overview block clearfix">
                                         <div class="display stat ok huge">
@@ -704,7 +578,7 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                                                 <%=output%>
                                                 <%
                                                     }
-                                                    int lastFeedValue = 0;
+                                                  int lastFeedValue = 0;
                                                     if (!points.get(i).isEmpty()) {
                                                         lastFeedValue = points.get(i).get(points.get(i).size() - 1);
                                                     }
@@ -730,7 +604,7 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                         </div>
                         <!-- END OVERVIEW STATISTIC BARS-->
                         <div class="row-fluid">
-                            <div class="span8">
+                            <div class="span12">
                                 <!-- BEGIN SITE VISITS PORTLET-->
                                 <div class="widget">
                                     <div class="widget-title">
@@ -746,7 +620,6 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                                     %>
                                         <span class="tools">
                                             <a href="javascript:;" class="icon-chevron-down"></a>
-                                            <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
                                             <a href="javascript:;" class="icon-refresh"></a>		
                                             <a href="javascript:;" class="icon-remove"></a>
                                         </span>							
@@ -777,103 +650,6 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                             </div>
                             <div class="span4">
                                 <!-- BEGIN NOTIFICATIONS PORTLET-->
-                                <div class="widget">
-                                    <div class="widget-title">
-                                        <h4><i class="icon-bell"></i>Notifications</h4>
-                                        <span class="tools">
-                                            <a href="javascript:;" class="icon-chevron-down"></a>
-                                            <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
-                                            <a href="javascript:;" class="icon-refresh"></a>
-                                        </span>							
-                                    </div>
-                                    <div class="widget-body">
-                                        <ul class="item-list scroller padding" data-height="307" data-always-visible="1">
-                                            <li>
-                                                <span class="label label-success"><i class="icon-bell"></i></span>
-                                                <span>New user registered.</span>
-                                                <span class="small italic">Just now</span>
-                                            </li>
-                                            <li>
-                                                <span class="label label-success"><i class="icon-bell"></i></span>
-                                                <span>New order received.</span>
-                                                <span class="small italic">15 mins ago</span>
-                                            </li>
-                                            <li>
-                                                <span class="label label-warning"><i class="icon-bullhorn"></i></span>
-                                                <span>Alerting a user account balance.</span>
-                                                <span class="small italic">2 hrs ago</span>
-                                            </li>
-                                            <li>
-                                                <span class="label label-important"><i class="icon-bolt"></i></span>
-                                                <span>Alerting administrators staff.</span>
-                                                <span class="small italic">11 hrs ago</span>
-                                            </li>
-                                            <li>
-                                                <span class="label label-important"><i class="icon-bolt"></i></span>
-                                                <span>Messages are not sent to users.</span>
-                                                <span class="small italic">14 hrs ago</span>
-                                            </li>
-                                            <li>
-                                                <span class="label label-warning"><i class="icon-bullhorn"></i></span>
-                                                <span>Web server #12 failed to relosd.</span>
-                                                <span class="small italic">2 days ago</span>										
-                                            </li>
-                                            <li>
-                                                <span class="label label-success"><i class="icon-bell"></i></span>
-                                                <span>New order received.</span>
-                                                <span class="small italic">15 mins ago</span>
-                                            </li>
-                                            <li>
-                                                <span class="label label-warning"><i class="icon-bullhorn"></i></span>
-                                                <span>Alerting a user account balance.</span>
-                                                <span class="small italic">2 hrs ago</span>
-                                            </li>
-                                            <li>
-                                                <span class="label label-important"><i class="icon-bolt"></i></span>
-                                                <span>Alerting administrators support staff.</span>
-                                                <span class="small italic">11 hrs ago</span>
-                                            </li>
-                                            <li>
-                                                <span class="label label-important"><i class="icon-bolt"></i></span>
-                                                <span>Messages are not sent to users.</span>
-                                                <span class="small italic">14 hrs ago</span>
-                                            </li>
-                                            <li>
-                                                <span class="label label-warning"><i class="icon-bullhorn"></i></span>
-                                                <span>Web server #12 failed to relosd.</span>
-                                                <span class="small italic">2 days ago</span>										
-                                            </li>
-                                            <li>
-                                                <span class="label label-success"><i class="icon-bell"></i></span>
-                                                <span>New order received.</span>
-                                                <span class="small italic">15 mins ago</span>
-                                            </li>
-                                            <li>
-                                                <span class="label label-warning"><i class="icon-bullhorn"></i></span>
-                                                <span>Alerting a user account balance.</span>
-                                                <span class="small italic">2 hrs ago</span>
-                                            </li>
-                                            <li>
-                                                <span class="label label-important"><i class="icon-bolt"></i></span>
-                                                <span>Alerting administrators support staff.</span>
-                                                <span class="small italic">11 hrs ago</span>
-                                            </li>
-                                            <li>
-                                                <span class="label label-important"><i class="icon-bolt"></i></span>
-                                                <span>Messages are not sent to users.</span>
-                                                <span class="small italic">14 hrs ago</span>
-                                            </li>
-                                            <li>
-                                                <span class="label label-warning"><i class="icon-bullhorn"></i></span>
-                                                <span>Web server #12 failed to relosd.</span>
-                                                <span class="small italic">2 days ago</span>										
-                                            </li>
-                                        </ul>
-                                        <div class="space5"></div>
-                                        <a href="#" class="pull-right">View all notifications</a>										
-                                        <div class="clearfix no-top-space no-bottom-space"></div>
-                                    </div>
-                                </div>
                                 <!-- END NOTIFICATIONS PORTLET-->
                             </div>
                         </div>
@@ -883,14 +659,13 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                         </div>
                         <!-- END OVERVIEW STATISTIC BLOCKS-->
                         <div class="row-fluid">
-                            <div class="span6">
+                            <div class="span12">
                                 <!-- BEGIN SERVER LOAD PORTLET-->
                                 <div class="widget">
                                     <div class="widget-title">
                                         <h4><i class="icon-cogs"></i>Server Load</h4>
                                         <span class="tools">
                                             <a href="javascript:;" class="icon-chevron-down"></a>
-                                            <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
                                             <a href="javascript:;" class="icon-refresh"></a>		
                                             <a href="javascript:;" class="icon-remove"></a>
                                         </span>							
@@ -919,59 +694,17 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                             </div>
                             <div class="span6">
                                 <!-- BEGIN REGIONAL STATS PORTLET-->
-                                <div class="widget">
-                                    <div class="widget-title">
-                                        <h4><i class="icon-globe"></i>Regional Stats</h4>
-                                        <span class="tools">
-                                            <a href="javascript:;" class="icon-chevron-down"></a>
-                                            <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
-                                            <a href="javascript:;" class="icon-refresh"></a>		
-                                            <a href="javascript:;" class="icon-remove"></a>										
-                                        </span>							
-                                    </div>
-                                    <div class="widget-body">
-                                        <div id="region_statistics_loading">
-                                            <img src="assets/img/loading.gif" alt="loading" />
-                                        </div>
-                                        <div id="region_statistics_content" class="hide">
-                                            <div class="btn-toolbar no-top-space clearfix">
-                                                <div class="btn-group" data-toggle="buttons-radio">
-                                                    <button class="btn btn-mini active">Users</button><button class="btn btn-mini">Orders</button><button class="btn btn-mini">Income</button>		
-                                                </div>
-                                                <div class="btn-group pull-right">
-                                                    <button class="btn btn-mini dropdown-t	oggle" data-toggle="dropdown">
-                                                        Select Region 
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="javascript:;" id="regional_stat_world">World</a></li>
-                                                        <li><a href="javascript:;" id="regional_stat_usa">USA</a></li>
-                                                        <li><a href="javascript:;" id="regional_stat_europe">Europe</a></li>
-                                                        <li><a href="javascript:;" id="regional_stat_russia">Russia</a></li>
-                                                        <li><a href="javascript:;" id="regional_stat_germany">Germany</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div id="vmap_world" class="vmaps  chart hide"></div>
-                                            <div id="vmap_usa" class="vmaps chart hide"></div>
-                                            <div id="vmap_europe" class="vmaps chart hide"></div>
-                                            <div id="vmap_russia" class="vmaps chart hide"></div>
-                                            <div id="vmap_germany" class="vmaps chart hide"></div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <!-- END REGIONAL STATS PORTLET-->
                             </div>
                         </div>
                         <div class="row-fluid">
-                            <div class="span6">
+                            <div class="span12">
                                 <!-- BEGIN LATEST INVOICES PORTLET-->
                                 <div class="widget">
                                     <div class="widget-title">
-                                        <h4><i class="icon-print"></i>Latest Invoices</h4>
+                                        <h4><i class="icon-print"></i>Latest Received Feeds</h4>
                                         <span class="tools">
                                             <a href="javascript:;" class="icon-chevron-down"></a>
-                                            <a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
                                             <a href="javascript:;" class="icon-refresh"></a>		
                                             <a href="javascript:;" class="icon-remove"></a>
                                         </span>							
@@ -993,7 +726,7 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                                             %>
                    
                                                 <tr>
-                                                    <td><a href="device.jsp?deviceid=<%=tableData.get(i).getFeed().getDevice().getDeviceId()%>"><%=tableData.get(i).getFeed().getDevice().getDeviceName()%></a></td>
+                                                    <td><a href="viewDevice.htm?deviceid=<%=tableData.get(i).getFeed().getDevice().getDeviceId()%>"><%=tableData.get(i).getFeed().getDevice().getDeviceName()%></a></td>
                                                     <td><%=tableData.get(i).getFeed().getFeedName()%></td>
                                                     <td>
                                                          <span class="label label-success label-mini block-margin-bottom-5"><%=tableData.get(i).getFeedValue()%></span>
