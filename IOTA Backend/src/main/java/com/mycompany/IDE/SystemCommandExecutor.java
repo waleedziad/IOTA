@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package iotacodeexecuter;
+package com.mycompany.IDE;
 
 /**
  *
  * @author Eagle
  */
+import com.mycompany.IDE.ThreadedStreamHandler;
 import java.io.*;
 import java.util.*;
 import java.util.logging.StreamHandler;
