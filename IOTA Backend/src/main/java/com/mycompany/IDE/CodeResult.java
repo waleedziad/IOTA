@@ -50,4 +50,14 @@ public class CodeResult {
         return this.timeExecution;
     }
 
+    public String getRes() {
+        String res = "";
+        res += "stdout:\n" + stdout;
+        res += "\n--------------------\n";
+        res += "stderr:\n" + stderr;
+        res += "\n--------------------\n";
+        res += "time execution:\n" + timeExecution / 1000 + " sec\n";
+        return res;
+    }
+
 }

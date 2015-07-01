@@ -71,7 +71,7 @@ public class IOTACodeExecuter {
 
             res += code.substring(st, nxt);
 
-            int device_id = 0, feed_id = 0, data_id = 0, cur = 0, semicolons = 0;
+            int deviceID = 0, feedID = 0, dataID = 0, cur = 0, semicolons = 0;
             for (int i = nxt; i < code.length(); i++) {
                 if (code.charAt(i) == '(') {
                     cur = 1;
@@ -89,16 +89,16 @@ public class IOTACodeExecuter {
                         cur = 2;
                         continue;
                     }
-                    device_id *= 10;
-                    device_id += (code.charAt(i) - '0');
+                    deviceID *= 10;
+                    deviceID += (code.charAt(i) - '0');
                 }
                 if (cur == 2) {
                     if (code.charAt(i) == ',') {
                         cur = 3;
                         continue;
                     }
-                    feed_id *= 10;
-                    feed_id += (code.charAt(i) - '0');
+                    feedID *= 10;
+                    feedID += (code.charAt(i) - '0');
                 }
                 if (cur == 3) {
                     if (code.charAt(i) == ')') {
@@ -106,12 +106,12 @@ public class IOTACodeExecuter {
                             // compilation error (less parameters)
                             return null;
                         }
-                        res += "\"" + GET_DATA(device_id, feed_id, data_id) + "\"";
+                        res += "\"" + GET_DATA(deviceID, feedID, dataID) + "\"";
                         st = i + 1;
                         break;
                     }
-                    data_id *= 10;
-                    data_id += (code.charAt(i) - '0');
+                    dataID *= 10;
+                    dataID += (code.charAt(i) - '0');
                 }
             }
         }
@@ -167,6 +167,8 @@ public class IOTACodeExecuter {
 
     public CodeResult run() throws IOException, InterruptedException {
         CodeResult res = new CodeResult();
+        code = refactorCode(code); // replace GET_DATA with its value
+
         if (L == Language.CPP) {
             String fileName = "Code" + user_id + "_" + device_id;
             String cppFilePath = GLOBAL_PATH + "\\" + fileName + ".cpp";
@@ -216,8 +218,11 @@ public class IOTACodeExecuter {
             }
             res.setTimeExec(endTime - startTime);
         } else if (L == Language.JAVA) {
-            code = refactorCode(code);
             code = renameMainClassJava(code, user_id, device_id);
+            if (code == null) {
+                res.setErr("Compilation Error: Java Code must has public class Main");
+                return res;
+            }
             String fileName = "Main" + user_id + "_" + device_id;
             String filePath = GLOBAL_PATH + "\\" + fileName + ".java";
 

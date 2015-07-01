@@ -45,27 +45,21 @@ public class IDEController {
         String Result = "Code Execution Result";
 
         if (Case.equalsIgnoreCase("Run")) {
-//            code = "public class Main {\n"
-//                    + "public static void main(String[] args) {\n"
-//                    + "System.out.println(\"TEST TEST\");\n"
-//                    + "}\n"
-//                    + "}\n";
             Language lang;
             if (langCode.equals("2")) {
                 lang = Language.CPP;
             } else {
                 lang = Language.JAVA;
             }
-
             IOTACodeExecuter IDE = new IOTACodeExecuter(code, userID, deviceID, lang);
             CodeResult result = IDE.run();
             System.out.println("Run");
             System.out.println(userID);
             System.out.println(code);
-            System.out.println(result.toString());
-            Result = result.getOut();
+            System.out.println(result.getRes());
+            Result = result.getRes();
 
-            response.getWriter().write(result.toString());
+            response.getWriter().write(result.getRes());
         } else if (Case.equalsIgnoreCase("Deplay")) {
 
         }
@@ -85,26 +79,21 @@ public class IDEController {
         ModelAndView modelAndView = new ModelAndView();
         String Result = "Code Execution Result";
         if (Case.equalsIgnoreCase("Run")) {
-//            code = "public class Main {\n"
-//                    + "public static void main(String[] args) {\n"
-//                    + "System.out.println(\"TEST TEST\");\n"
-//                    + "}\n"
-//                    + "}\n";
             Language lang;
-        if (langCode.equals("2")) {
-            lang = Language.CPP;
-        } else {
-            lang = Language.JAVA;
-        }
+            if (langCode.equals("2")) {
+                lang = Language.CPP;
+            } else {
+                lang = Language.JAVA;
+            }
 
             IOTACodeExecuter IDE = new IOTACodeExecuter(code, userID, deviceID, lang);
-             CodeResult result = IDE.run();
-             System.out.println("Run");
-             System.out.println(userID);
-             System.out.println(code);
-             System.out.println(result.toString());
-             response.getWriter().write(result.toString());
-             Result=result.getOut();
+            CodeResult result = IDE.run();
+            System.out.println("Run");
+            System.out.println(userID);
+            System.out.println(code);
+            System.out.println(result.getRes());
+            response.getWriter().write(result.getRes());
+            Result = result.getOut();
         } else if (Case.equalsIgnoreCase("Deplay")) {
 
         }
