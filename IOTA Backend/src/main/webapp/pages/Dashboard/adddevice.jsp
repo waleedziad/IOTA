@@ -68,7 +68,7 @@
                 </div>
                 <input type="submit" id="login-btn" class="btn btn-block btn-inverse" value="Add Device" />
             </form><br>
-            <form id="Back" class="form-vertical no-padding no-margin" action="index.jsp">
+            <form id="Back" class="form-vertical no-padding no-margin" action="index.htm">
                 <input type="submit" id="back-btn" class="btn btn-block btn-inverse" value="Dashboard" />
             </form>
             <!-- END LOGIN FORM -->
