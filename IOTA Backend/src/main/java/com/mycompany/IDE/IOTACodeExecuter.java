@@ -172,7 +172,6 @@ public class IOTACodeExecuter {
             res.setErr("Compilation Error: GET_DATA function must have three parameters (devicID, feedID, dataID)");
             return res;
         }
-
         if (L == Language.CPP) {
             String fileName = "Code" + user_id + "_" + device_id;
             String cppFilePath = GLOBAL_PATH + "\\" + fileName + ".cpp";
