@@ -7,6 +7,8 @@ package com.mycompany.Controller;
 import com.mycompany.IDE.CodeResult;
 import com.mycompany.IDE.IOTACodeExecuter;
 import com.mycompany.IDE.Language;
+import com.mycompany.Wrappers.IPTable;
+import com.mycompany.Wrappers.Requester;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -34,6 +36,7 @@ import org.springframework.web.servlet.ModelAndView;
 @SessionAttributes({"user_id", "devices", "points", "devicesInfo", "table_data", "device_table_data", "email", "codeResult"})
 public class IDEController {
 
+    
     @RequestMapping(value = "deviceIDE.htm", method = RequestMethod.POST)
     public ModelAndView deviceIDE(
             @RequestParam("code") String code,
@@ -64,6 +67,12 @@ public class IDEController {
 
             //response.getWriter().write(result.getRes());
         } else if (Case.equalsIgnoreCase("Deplay")) {
+            if (IPTable.table.containsValue(deviceID))
+            {
+                Requester requester = new Requester();
+                requester.sendGet(IPTable.table.get(deviceID));
+                
+            }
 
         }
         modelAndView.addObject("codeResult", Result);
@@ -96,8 +105,10 @@ public class IDEController {
             System.out.println("Run");
             System.out.println(userID);
             System.out.println(code);
-           // System.out.println(result.getRes());
-           // response.getWriter().write(result.getRes());
+
+            System.out.println(result.getRes());
+            response.getWriter().write(result.getRes());
+
             Result = result.getRes();
         } else if (Case.equalsIgnoreCase("Deplay")) {
 

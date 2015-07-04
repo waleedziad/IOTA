@@ -52,11 +52,9 @@ public class CodeResult {
 
     public String getRes() {
         String res = "";
-        res += "stdout:\n" + stdout;
-        res += "\n--------------------\n";
-        res += "stderr:\n" + stderr;
-        res += "\n--------------------\n";
-        res += "time execution:\n" + timeExecution / 1000 + " sec\n";
+        res += "stdout: " + stdout+"\n";
+        res += "stderr: " + stderr+"\n";
+        res += "time execution: " + timeExecution / 1000 + " sec\n";
         return res;
     }
 
