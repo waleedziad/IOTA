@@ -168,6 +168,10 @@ public class IOTACodeExecuter {
     public CodeResult run() throws IOException, InterruptedException {
         CodeResult res = new CodeResult();
         code = refactorCode(code); // replace GET_DATA with its value
+        if (code == null) {
+            res.setErr("Compilation Error: GET_DATA function must have three parameters (devicID, feedID, dataID)");
+            return res;
+        }
 
         if (L == Language.CPP) {
             String fileName = "Code" + user_id + "_" + device_id;
