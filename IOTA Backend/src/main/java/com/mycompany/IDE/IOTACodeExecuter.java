@@ -84,6 +84,12 @@ public class IOTACodeExecuter {
                         return null;
                     }
                 }
+                if (code.charAt(i) == ')') {
+                    if (semicolons != 2) {
+                        // compilation error (less parameters)
+                        return null;
+                    }
+                }
                 if (cur == 1) {
                     if (code.charAt(i) == ',') {
                         cur = 2;
@@ -102,10 +108,6 @@ public class IOTACodeExecuter {
                 }
                 if (cur == 3) {
                     if (code.charAt(i) == ')') {
-                        if (semicolons != 2) {
-                            // compilation error (less parameters)
-                            return null;
-                        }
                         res += "\"" + GET_DATA(deviceID, feedID, dataID) + "\"";
                         st = i + 1;
                         break;
