@@ -1,4 +1,5 @@
 com\mycompany\Domain\FeedData.class
+com\mycompany\Wrappers\IPTable.class
 com\mycompany\DAO\FeedDao.class
 com\mycompany\Controller\FeedController.class
 com\mycompany\Domain\User.class
@@ -6,6 +7,7 @@ com\mycompany\Domain\FeedData_.class
 com\mycompany\Controller\UserController.class
 com\mycompany\DAO\DeviceDao.class
 com\mycompany\Domain\Feed.class
+com\mycompany\Wrappers\Requester.class
 com\mycompany\DAO\FeedDataDao.class
 com\mycompany\DAO\UserDao.class
 com\mycompany\Domain\Feed_.class

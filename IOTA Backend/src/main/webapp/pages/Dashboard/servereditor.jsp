@@ -9,6 +9,7 @@
     }
     Long deviceId = Long.parseLong(request.getParameter("deviceId"));
     Long userId = (Long) session.getAttribute("user_id");
+    String code = (String) session.getAttribute("code");
 %>
 
 <!DOCTYPE html>
@@ -62,7 +63,7 @@
             <div class="navbar-inner">
                 <div class="container-fluid">
                     <!-- BEGIN LOGO -->
-                    <a class="brand" href="index.jsp">
+                    <a class="brand" href="index.htm">
                         <img src="assets/img/logo.png" alt="Conquer"/>
                     </a>
                     <!-- END LOGO -->
@@ -178,7 +179,7 @@
                 <!-- BEGIN SIDEBAR MENU -->
                 <ul>
                     <li>
-                        <a href="index.jsp">
+                        <a href="index.htm">
                             <i class="icon-home"></i> Dashboard
                         </a>					
                     </li>
@@ -303,13 +304,7 @@
                                         <h4><i class="icon-reorder"></i>Code Editor</h4>
                                     </div>
                                     <span class="tools" style="height:100%;width:100%;">
-                                        <textarea name="code" style="height:35%;width:81%;">#include &lt;iostream>
-#include &lt;stdlib>
-
-int main() {
-    cout << "Hello World!" << endl;
-    return 0;
-}</textarea>
+                                        <textarea name="code" style="height:35%;width:81%;"><%=code%></textarea>
                                         <div id="code" style="height:35%;width:81%;"/>
 
 

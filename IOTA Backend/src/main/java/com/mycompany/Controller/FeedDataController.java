@@ -3,6 +3,7 @@ package com.mycompany.Controller;
 import com.mycompany.DAO.FeedDataDao;
 import com.mycompany.Domain.FeedData;
 import com.mycompany.Domain.User;
+import com.mycompany.Wrappers.IPTable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,8 +32,10 @@ public class FeedDataController {
     public void AcceptInput(
             @RequestParam("feedValue") String feedValue,
             @RequestParam("feedId") Long feedId,
+            @RequestParam("ip") String ip,
+            @RequestParam("deviceID") String deviceID,
             HttpServletResponse response) throws Exception {
-        
+        IPTable.table.put(deviceID, ip)  ;
         Calendar cal = Calendar.getInstance();
         Date feedDate=cal.getTime();
         FeedData feedData = new FeedData(feedValue, feedDate, feedId);

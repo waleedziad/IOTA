@@ -18,7 +18,7 @@
     <!-- BEGIN HEAD -->
     <head>
         <meta charset="utf-8" />
-        <title>Add Device</title>
+        <title>Add Feed</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content="" name="description" />
         <meta content="" name="author" />
@@ -85,7 +85,7 @@
                 </div>
                 <input type="submit" id="login-btn" class="btn btn-block btn-inverse" value="Add Feed" />
             </form><br>
-            <form id="Back" class="form-vertical no-padding no-margin" action="index.jsp">
+            <form id="Back" class="form-vertical no-padding no-margin" action="index.htm">
                 <input type="submit" id="back-btn" class="btn btn-block btn-inverse" value="Dashboard" />
             </form>
             <!-- END LOGIN FORM -->

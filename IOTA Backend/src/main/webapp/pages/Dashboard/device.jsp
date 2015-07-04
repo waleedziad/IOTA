@@ -298,7 +298,7 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
             <div class="navbar-inner">
                 <div class="container-fluid">
                     <!-- BEGIN LOGO -->
-                    <a class="brand" href="index.jsp">
+                    <a class="brand" href="index.htm">
                         <img src="assets/img/logo.png" alt="Conquer" />
                     </a>
                     <!-- END LOGO -->
@@ -414,7 +414,7 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                 <!-- BEGIN SIDEBAR MENU -->
                 <ul>
                     <li class="active">
-                        <a href="index.jsp">
+                        <a href="index.htm">
                             <i class="icon-home"></i> Dashboard
                         </a>					
                     </li>
@@ -530,11 +530,11 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                         <div class="row-fluid stats-overview-cont"></div>
                         <!-- END OVERVIEW STATISTIC BARS-->
                         <div class="row-fluid">
-                            <div class="span6"> <a href="editor.jsp?deviceId=<%=deviceId%>">
+                            <div class="span6"> <a href="editor.htm?deviceId=<%=deviceId%>">
                                     <button class="btn btn-block btn-inverse" type="button">Device IDE</button>
                                 </a>
                             </div>
-                            <div class="span6"> <a href="servereditor.jsp?deviceId=<%=deviceId%>">
+                            <div class="span6"> <a href="servereditor.htm?deviceId=<%=deviceId%>">
                                     <button class="btn btn-block btn-inverse" type="button">Server IDE</button>
                                 </a>
                             </div>

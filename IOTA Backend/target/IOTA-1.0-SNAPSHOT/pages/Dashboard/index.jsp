@@ -1,3 +1,4 @@
+<%@page import="java.math.BigDecimal"%>
 <%@page import="com.mycompany.Domain.FeedData"%>
 <%@page import="com.mycompany.Controller.DashboardController.DeviceInfo"%>
 <%@page import="com.mycompany.Domain.Device"%>
@@ -321,7 +322,7 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
             <div class="navbar-inner">
                 <div class="container-fluid">
                     <!-- BEGIN LOGO -->
-                    <a class="brand" href="index.jsp">
+                    <a class="brand" href="index.htm">
                         <img src="assets/img/logo.png" alt="Conquer" />
                     </a>
                     <!-- END LOGO -->
@@ -433,7 +434,7 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                 <!-- BEGIN SIDEBAR MENU -->
                 <ul>
                     <li class="active">
-                        <a href="index.jsp">
+                        <a href="index.htm">
                             <i class="icon-home"></i> Dashboard
                         </a>					
                     </li>
@@ -558,6 +559,9 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                         <div class="row-fluid stats-overview-cont">
 
                             <%
+                 
+
+                                Long totalUserData=(Long)session.getAttribute("total_user_data");
                                 ArrayList<Device> devices = (ArrayList<Device>) session.getAttribute("devices");
                                 for (int i = 0; i < devices.size(); i++) {
                             %>
@@ -580,19 +584,24 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
                                                     }
                                                   int lastFeedValue = 0;
                                                     if (!points.get(i).isEmpty()) {
-                                                        lastFeedValue = points.get(i).get(points.get(i).size() - 1);
+                                                        lastFeedValue = points.get(i).get(0);
                                                     }
-
+                                                    int totalDeviceData=0;
+                                                    for(int j=0;j< devicesInfo.get(i).feeds.size();j++)
+                                                        totalDeviceData+=devicesInfo.get(i).feeds.get(j).feedData.size();
+                                                    
+                                                    float percentage=((float)totalDeviceData/totalUserData)*100.0f;
+                                                    percentage=BigDecimal.valueOf(percentage).setScale(2,BigDecimal.ROUND_HALF_UP).floatValue();
                                                 %>
                                             </span>
-                                            <div class="percent">+66%</div>
+                                            <div class="percent"><%=percentage%>%</div>
                                         </div>
                                         <div class="details">
                                             <div class="title"><%=devices.get(i).getDeviceName()%></div>
                                             <div class="numbers"><%=lastFeedValue%></div>
                                         </div>
                                         <div class="progress progress-info">
-                                            <div class="bar" style="width: 66%"></div>
+                                            <div class="bar" style="width: <%=percentage%>%"></div>
                                         </div>
                                     </div>
                                 </div>

@@ -48,7 +48,7 @@ public class DeviceDao {
             ArrayList<Integer> feedDataPoints=new ArrayList<Integer>();
             
             Long feedId = feeds.get(0).getFeedId();
-             List<FeedData> feedData = entityManager.createQuery("from FeedData where feedId = :code ORDER BY feedDate DESC").setParameter("code",feedId).setMaxResults(10).getResultList();
+             List<FeedData> feedData = entityManager.createQuery("from FeedData where feedId = :code ORDER BY feedDate DESC").setParameter("code",feedId).getResultList();
              for(int j=0;j<feedData.size();j++)
                  feedDataPoints.add(Integer.parseInt(feedData.get(j).getFeedValue()));
              

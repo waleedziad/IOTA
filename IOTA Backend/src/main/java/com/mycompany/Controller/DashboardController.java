@@ -8,11 +8,18 @@ import com.mycompany.Domain.Device;
 import com.mycompany.Domain.Feed;
 import com.mycompany.Domain.FeedData;
 import com.mycompany.Domain.User;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,13 +32,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 @RequestMapping("/pages/Dashboard")
 @TransactionConfiguration(defaultRollback = false)
 @ContextConfiguration({"classpath:configuration/applicationContext.xml"})
 @Transactional
-@SessionAttributes({"user_id", "devices", "points", "devicesInfo", "table_data","device_table_data","email"})
+@SessionAttributes({"user_id", "devices", "points", "devicesInfo", "table_data", "device_table_data", "email", "code","total_user_data"})
 public class DashboardController {
 
     @Autowired
@@ -88,36 +96,58 @@ public class DashboardController {
         }
         //response.getWriter().write("Received " + username + " " + password + " " + loginSuccess.toString());
         if (loginSuccess) {
-            ArrayList<DeviceInfo> deviceInfo = new ArrayList<DeviceInfo>();
-            ArrayList<Device> devices = (ArrayList<Device>) deviceDao.getAllUserDevices(userId);
-            for (int i = 0; i < devices.size(); i++) {
-                DeviceInfo info = new DeviceInfo();
-                info.device = devices.get(i);
-                ArrayList<Feed> feeds = (ArrayList<Feed>) feedDao.getAllDeviceFeeds(info.device.getDeviceId());
-                for (int j = 0; j < feeds.size(); j++) {
-                    FeedInfo feedInfo = new FeedInfo();
-                    feedInfo.feed = feeds.get(j);
-                    feedInfo.feedData = (ArrayList<FeedData>) feedDataDao.getAllFeedData(feedInfo.feed.getFeedId());
-                    if (feedInfo.feedData.size() == 0) {
-                        FeedData data = new FeedData();
-                        data.setFeedValue(0 + "");
-                        feedInfo.feedData.add(data);
-                    }
-
-                    info.feeds.add(feedInfo);
-                }
-
-                deviceInfo.add(info);
-            }
-            ArrayList<FeedData> tableData = (ArrayList<FeedData>) feedDataDao.getAllDashboardTableFeedData();
-            modelAndView.addObject("table_data", tableData);
-            modelAndView.addObject("devicesInfo", deviceInfo);
-            modelAndView.addObject("devices", devices);
-            modelAndView.addObject("points", deviceDao.getAllGraphData(userId));
-            modelAndView.setViewName("index.jsp");
+            RedirectView rv = new RedirectView("index.htm");
+            rv.setExposeModelAttributes(false);
+            modelAndView.setView(rv);
         } else {
-            modelAndView.setViewName("login.jsp");
+            RedirectView rv = new RedirectView("login.jsp");
+            rv.setExposeModelAttributes(false);
+            modelAndView.setView(rv);
         }
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "index.htm", method = RequestMethod.GET)
+    public ModelAndView updateIndex(
+            HttpServletRequest request) throws Exception {
+        ModelAndView modelAndView = new ModelAndView();
+        if (request.getSession().getAttribute("user_id") == null) {
+            RedirectView rv = new RedirectView("login.jsp");
+            rv.setExposeModelAttributes(false);
+            modelAndView.setView(rv);
+            return modelAndView;
+        }
+        Long userId = (Long) request.getSession().getAttribute("user_id");
+
+        ArrayList<DeviceInfo> deviceInfo = new ArrayList<DeviceInfo>();
+        ArrayList<Device> devices = (ArrayList<Device>) deviceDao.getAllUserDevices(userId);
+        Long totalUserData=0L;
+        for (int i = 0; i < devices.size(); i++) {
+            DeviceInfo info = new DeviceInfo();
+            info.device = devices.get(i);
+            ArrayList<Feed> feeds = (ArrayList<Feed>) feedDao.getAllDeviceFeeds(info.device.getDeviceId());
+            for (int j = 0; j < feeds.size(); j++) {
+                FeedInfo feedInfo = new FeedInfo();
+                feedInfo.feed = feeds.get(j);
+                feedInfo.feedData = (ArrayList<FeedData>) feedDataDao.getAllFeedData(feedInfo.feed.getFeedId());
+                if (feedInfo.feedData.size() == 0) {
+                    FeedData data = new FeedData();
+                    data.setFeedValue(0 + "");
+                    feedInfo.feedData.add(data);
+                }
+                totalUserData+=feedInfo.feedData.size();
+                info.feeds.add(feedInfo);
+            }
+
+            deviceInfo.add(info);
+        }
+        ArrayList<FeedData> tableData = (ArrayList<FeedData>) feedDataDao.getAllDashboardTableFeedData();
+        modelAndView.addObject("total_user_data", totalUserData);
+        modelAndView.addObject("table_data", tableData);
+        modelAndView.addObject("devicesInfo", deviceInfo);
+        modelAndView.addObject("devices", devices);
+        modelAndView.addObject("points", deviceDao.getAllGraphData(userId));
+        modelAndView.setViewName("index.jsp");
         return modelAndView;
     }
 
@@ -158,35 +188,9 @@ public class DashboardController {
 
         ModelAndView modelAndView = new ModelAndView();
 
-        ArrayList<DeviceInfo> deviceInfo = new ArrayList<DeviceInfo>();
-        ArrayList<Device> devices = (ArrayList<Device>) deviceDao.getAllUserDevices(userId);
-        for (int i = 0; i < devices.size(); i++) {
-            DeviceInfo info = new DeviceInfo();
-            info.device = devices.get(i);
-            ArrayList<Feed> feeds = (ArrayList<Feed>) feedDao.getAllDeviceFeeds(info.device.getDeviceId());
-            for (int j = 0; j < feeds.size(); j++) {
-                FeedInfo feedInfo = new FeedInfo();
-                feedInfo.feed = feeds.get(j);
-                feedInfo.feedData = (ArrayList<FeedData>) feedDataDao.getAllFeedData(feedInfo.feed.getFeedId());
-                if (feedInfo.feedData.size() == 0) {
-                    FeedData data = new FeedData();
-                    data.setFeedValue(0 + "");
-                    feedInfo.feedData.add(data);
-                }
-
-                info.feeds.add(feedInfo);
-            }
-
-            deviceInfo.add(info);
-        }
-
-        modelAndView.addObject("devicesInfo", deviceInfo);
-
-        ArrayList<FeedData> tableData = (ArrayList<FeedData>) feedDataDao.getAllDashboardTableFeedData();
-        modelAndView.addObject("table_data", tableData);
-        modelAndView.addObject("devices", devices);
-        modelAndView.addObject("points", deviceDao.getAllGraphData(userId));
-        modelAndView.setViewName("index.jsp");
+        RedirectView rv = new RedirectView("index.htm");
+        rv.setExposeModelAttributes(false);
+        modelAndView.setView(rv);
 
         return modelAndView;
 
@@ -219,49 +223,74 @@ public class DashboardController {
 
         ModelAndView modelAndView = new ModelAndView();
 
-        ArrayList<DeviceInfo> deviceInfo = new ArrayList<DeviceInfo>();
-        ArrayList<Device> devices = (ArrayList<Device>) deviceDao.getAllUserDevices(userId);
-        for (int i = 0; i < devices.size(); i++) {
-            DeviceInfo info = new DeviceInfo();
-            info.device = devices.get(i);
-            ArrayList<Feed> feeds = (ArrayList<Feed>) feedDao.getAllDeviceFeeds(info.device.getDeviceId());
-            for (int j = 0; j < feeds.size(); j++) {
-                FeedInfo feedInfo = new FeedInfo();
-                feedInfo.feed = feeds.get(j);
-                feedInfo.feedData = (ArrayList<FeedData>) feedDataDao.getAllFeedData(feedInfo.feed.getFeedId());
-                if (feedInfo.feedData.size() == 0) {
-                    FeedData data = new FeedData();
-                    data.setFeedValue(0 + "");
-                    feedInfo.feedData.add(data);
-                }
-
-                info.feeds.add(feedInfo);
-            }
-
-            deviceInfo.add(info);
-        }
-
-        modelAndView.addObject("devicesInfo", deviceInfo);
-
-        ArrayList<FeedData> tableData = (ArrayList<FeedData>) feedDataDao.getAllDashboardTableFeedData();
-        modelAndView.addObject("table_data", tableData);
-        modelAndView.addObject("devices", devices);
-        modelAndView.setViewName("index.jsp");
+        RedirectView rv = new RedirectView("index.htm");
+        rv.setExposeModelAttributes(false);
+        modelAndView.setView(rv);
 
         return modelAndView;
     }
-    
+
     @RequestMapping(value = "viewDevice.htm", method = RequestMethod.GET)
     public ModelAndView viewDevice(
             @RequestParam("deviceid") Long deviceId,
             HttpServletResponse response) throws Exception {
-       
+
         ModelAndView modelAndView = new ModelAndView();
-       
+
         ArrayList<FeedData> tableData = (ArrayList<FeedData>) feedDataDao.getAllTableFeedData(deviceId);
         modelAndView.addObject("device_table_data", tableData);
-        modelAndView.setViewName("device.jsp?id="+deviceId);
-
+        modelAndView.setViewName("device.jsp?deviceid=" + deviceId);
         return modelAndView;
+    }
+
+    @RequestMapping(value = "servereditor.htm", method = RequestMethod.GET)
+    public ModelAndView viewServerEditor(
+            @RequestParam("deviceId") Long deviceId,
+            HttpServletResponse response) throws Exception {
+
+        ModelAndView modelAndView = new ModelAndView();
+
+        String code = readFromFile("C:\\IOTA\\ServerCode\\Server_" + deviceId + ".txt");
+        modelAndView.addObject("code", code);
+        modelAndView.setViewName("servereditor.jsp?deviceId=" + deviceId);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "editor.htm", method = RequestMethod.GET)
+    public ModelAndView viewDeviceEditor(
+            @RequestParam("deviceId") Long deviceId,
+            HttpServletResponse response) throws Exception {
+
+        ModelAndView modelAndView = new ModelAndView();
+        
+        String code = readFromFile("C:\\IOTA\\DeviceCode\\Device_" + deviceId + ".txt");
+        modelAndView.addObject("code", code);
+        modelAndView.setViewName("editor.jsp?deviceId=" + deviceId);
+        return modelAndView;
+    }
+
+    private String readFromFile(String filePath) {
+        String content = "";
+        try {
+            FileReader fr = new FileReader(new File(filePath));
+            int ch;
+            while ((ch = fr.read()) != -1) {
+                content += (char) ch;
+            }
+            fr.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        if (content.isEmpty()) {
+            content = "public class Main{\n"
+                    + "    public static void main(String[] args){\n"
+                    + "        System.out.println(\"Hello IOTA!\");\n"
+                    + "    }\n"
+                    + "}";
+        }
+        return content;
     }
 }
